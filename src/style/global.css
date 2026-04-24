@@ -1,0 +1,112 @@
+@import './variables.css';
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--white);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { display: block; max-width: 100%; }
+
+.col {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px var(--section-px);
+  overflow-x: clip;
+}
+
+/* Ghost number */
+.ghost {
+  position: absolute;
+  font-size: clamp(200px, 30vw, 400px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  color: var(--black);
+  opacity: 0.03;
+  left: 50%;
+  right: auto;
+  bottom: 8%;
+  z-index: 0;
+  transform: perspective(900px) rotateX(0deg) rotateY(0deg);
+  transform-origin: center center;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+}
+
+/* Section title */
+.sec-title {
+  font-size: var(--sec-title-size);
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin-bottom: 48px;
+}
+
+.sec-hl { position: relative; display: inline-block; }
+
+.sec-hl::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 6px;
+  width: 0;
+  background: var(--yellow);
+  border-radius: 3px;
+  transition: width 0.75s 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sec-hl.hl-vis::after { width: 100%; }
+
+/* Chip */
+.chip {
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--gray);
+  letter-spacing: 0.3px;
+}
+
+.chip.hi {
+  border-color: var(--black);
+  color: var(--black);
+  font-weight: 600;
+}
+
+/* Tag */
+.tag {
+  font-size: 10px;
+  background: #f3f3f3;
+  padding: 2px 8px;
+  border-radius: 100px;
+  color: var(--gray);
+}
+
+/* Keyframe: underline grow (reusable) */
+@keyframes hlGrow { to { width: 100%; } }
+
+/* Keyframe: blink */
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+@media (max-width: 767px) {
+  .section { padding: 80px var(--section-px); min-height: auto; }
+  .ghost { font-size: clamp(80px, 22vw, 120px); bottom: 4%; left: 40%; transform: none; transition: none; }
+}

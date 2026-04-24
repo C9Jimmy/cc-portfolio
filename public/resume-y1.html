@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>程資閔 Chris Cheng｜前端工程師</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow: #FFD600;
+      --black: #111111;
+      --text: #1a1a1a;
+      --muted: #606060;
+      --light: #909090;
+      --border: #e2e2e2;
+      --bg: #f0f0f0;
+      --surface: #f8f8f8;
+      --white: #ffffff;
+
+      --font-body: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+      --lh-body: 1.75;
+      --lh-tight: 1.2;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: var(--lh-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--yellow);
+      transition: background 0.15s;
+    }
+    a:hover { background: var(--yellow); }
+
+    /* ─── Page Shell ─────────────────────────────── */
+    .page {
+      max-width: 56rem;
+      margin: 2.5rem auto;
+      background: var(--white);
+      border-radius: 0.75rem;
+      box-shadow: 0 0.25rem 2rem rgba(0,0,0,0.13);
+      overflow: hidden;
+    }
+
+    /* ─── Header ─────────────────────────────────── */
+    .header {
+      background: #FFD600;
+      color: #111111;
+      padding: 3rem 3rem 2.25rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: #111111;
+    }
+
+    .avatar {
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 50%;
+      border: 2.5px solid var(--yellow);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .header-info { flex: 1; }
+
+    .header-info h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      line-height: var(--lh-tight);
+      margin-bottom: 0.25rem;
+    }
+
+    .en-name {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      color: rgba(0,0,0,0.45);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .badge {
+      background: #111111;
+      color: #FFD600;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: 2rem;
+      padding: 0.2rem 0.75rem;
+    }
+
+    /* ─── Contact Bar ────────────────────────────── */
+    .contact-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.875rem 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .contact-item i {
+      font-size: 0.8125rem;
+      color: var(--black);
+      width: 1rem;
+      text-align: center;
+    }
+
+    /* ─── Main Layout ────────────────────────────── */
+    .main {
+      display: grid;
+      grid-template-columns: 1fr 17rem;
+    }
+
+    .content {
+      padding: 2.5rem 3rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .sidebar {
+      padding: 2.5rem 1.75rem;
+      background: var(--surface);
+    }
+
+    /* ─── Section ────────────────────────────────── */
+    .section { margin-bottom: 2.5rem; }
+    .section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--black);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 3px solid var(--yellow);
+    }
+
+    /* ─── Experience ─────────────────────────────── */
+    .exp-item { margin-bottom: 1.75rem; }
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .exp-role {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: var(--lh-tight);
+    }
+
+    .exp-period {
+      font-size: 0.75rem;
+      color: var(--light);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .exp-company {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-bottom: 0.625rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .exp-company .industry {
+      background: var(--yellow);
+      color: var(--black);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      padding: 0.1rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    .exp-desc {
+      font-size: 0.875rem;
+      color: #333;
+      line-height: var(--lh-body);
+    }
+
+    .exp-desc ul {
+      padding-left: 1rem;
+      list-style: none;
+    }
+
+    .exp-desc ul li {
+      position: relative;
+      padding-left: 0.875rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-desc ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 4px;
+      height: 4px;
+      background: var(--yellow);
+      border-radius: 50%;
+    }
+
+    .exp-desc strong { color: var(--black); font-weight: 600; }
+
+    .exp-tags {
+      margin-top: 0.625rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+    }
+
+    .tag {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      background: #f2f2f2;
+      color: var(--muted);
+      border-radius: 0.25rem;
+      padding: 0.15rem 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .divider { height: 1px; background: var(--border); margin: 1.75rem 0; }
+
+    /* ─── Sidebar ────────────────────────────────── */
+    .skill-group { margin-bottom: 1.5rem; }
+
+    .skill-group-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-list { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+
+    .chip {
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 0.375rem;
+      padding: 0.2rem 0.625rem;
+      color: var(--text);
+    }
+
+    .chip.hi {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    /* Learning */
+    .learn-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8125rem;
+      padding: 0.375rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .learn-item:last-of-type { border-bottom: none; }
+
+    .learn-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .learn-row { display: flex; align-items: center; gap: 0.5rem; }
+
+    .dot-h { background: var(--yellow); }
+    .dot-m { background: #aaa; }
+    .dot-l { background: #ddd; }
+
+    /* Education */
+    .edu-item { margin-bottom: 1rem; }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-school { font-size: 0.875rem; font-weight: 700; }
+    .edu-dept { font-size: 0.8125rem; color: var(--muted); margin-top: 0.1rem; }
+    .edu-period { font-size: 0.75rem; color: var(--light); margin-top: 0.1rem; }
+
+    /* Certs */
+    .cert-item {
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cert-item:last-child { border-bottom: none; }
+
+    /* Job prefs */
+    .pref-item {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      padding: 0.25rem 0;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .pref-item i {
+      color: var(--black);
+      width: 1rem;
+      text-align: center;
+      margin-top: 0.15rem;
+      font-size: 0.75rem;
+    }
+
+    /* ─── Print ──────────────────────────────────── */
+    @page {
+      size: A4;
+      margin: 8mm 10mm;
+    }
+
+    @media print {
+      html { font-size: 12.5px; }
+      body { background: white; }
+      .page { margin: 0; border-radius: 0; box-shadow: none; max-width: 100%; width: 100%; }
+      .header { padding: 1.5rem 2rem; }
+      .contact-bar { padding: 0.6rem 2rem; }
+      .content { padding: 1.5rem 2rem; }
+      .sidebar { padding: 1.5rem 1.25rem; }
+    }
+
+    @media (max-width: 700px) {
+      .page { margin: 0; border-radius: 0; }
+      .header { padding: 2rem 1.5rem; flex-direction: column; gap: 1.25rem; }
+      .contact-bar { padding: 0.875rem 1.5rem; }
+      .main { grid-template-columns: 1fr; }
+      .content { padding: 1.75rem 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
+      .sidebar { padding: 1.75rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="avatar">
+      <img src="../99_image/260410_72dpi.jpg" alt="程資閔">
+    </div>
+    <div class="header-info">
+      <h1>程資閔</h1>
+      <div class="en-name">Cheng Tzu Min &nbsp;·&nbsp; Chris</div>
+      <div class="badges">
+        <span class="badge">前端工程師</span>
+        <span class="badge">UI/UX 設計師</span>
+        <span class="badge">專案管理</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Bar -->
+  <div class="contact-bar">
+    <div class="contact-item">
+      <i class="fa-solid fa-location-dot"></i>
+      以台中為據，遠端從優
+    </div>
+    <div class="contact-item">
+      <i class="fa-solid fa-envelope"></i>
+      <a href="mailto:ctzumiin@gmail.com">ctzumiin@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <i class="fa-brands fa-github"></i>
+      <a href="https://github.com/C9Jimmy" target="_blank">github.com/C9Jimmy</a>
+    </div>
+    <div class="contact-item">
+      <i class="fa-solid fa-briefcase"></i>
+      5～6 年工作經歷
+    </div>
+  </div>
+
+  <div class="main">
+
+    <!-- Content -->
+    <div class="content">
+
+      <div class="section">
+        <div class="section-title">關於我</div>
+        <p style="font-size:0.875rem;line-height:1.8;color:#333;max-width:58ch;">
+          具備前端開發與 UI/UX 設計的雙重實務背景。曾於醫療軟體公司以 Vue.js 參與 HIS 系統從 table-based 架構重構為模組化元件，並獨立建置 Web App 登入頁面、使用 Git / GitLab 進行版本控管。在益林，我負責六家企業官網的 HTML/CSS 切版，使用 Bootstrap 建置響應式頁面。目前正學習 Vue 3 Composition API 與 TypeScript，並以此網站作為實作驗證。設計師出身的前端視角，能精準理解視覺意圖，有效降低設計工程溝通成本。
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">工作經歷</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">平面設計師</div>
+            <div class="exp-period">2021/07 – 2026/03 &nbsp;·&nbsp; 4年9個月</div>
+          </div>
+          <div class="exp-company">
+            紙研所有限公司
+            <span class="industry">廣告行銷公關業</span>
+          </div>
+          <div class="exp-desc">
+            <ul>
+              <li>2025 年起系統性規劃前端轉職：重新學習 JavaScript ES6+、Vue 3 Composition API</li>
+              <li>2025 年以 WordPress 完成 <a href="https://trouver.art/" target="_blank">Trouver</a> 網站從規劃到上線的完整流程</li>
+              <li>協助 Trouver、單純點進行 SEO 規劃與優化</li>
+              <li>將 AI 工具導入設計流程，用於概念收斂與文案優化</li>
+              <li>負責印刷案件完整流程：印前溝通、規格規劃、看印交付</li>
+            </ul>
+          </div>
+          <div class="exp-tags">
+            <span class="tag">WordPress</span><span class="tag">JavaScript</span><span class="tag">Vue 3</span>
+            <span class="tag">Illustrator</span><span class="tag">Photoshop</span><span class="tag">InDesign</span><span class="tag">AI 工具</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">UI/UX 設計師</div>
+            <div class="exp-period">2018/10 – 2021/06 &nbsp;·&nbsp; 2年9個月</div>
+          </div>
+          <div class="exp-company">
+            健康聯網資訊服務股份有限公司
+            <span class="industry">電腦軟體服務業</span>
+          </div>
+          <div class="exp-desc">
+            <ul>
+              <li><strong>HIS 系統重構</strong>：參與將 table-based 醫療系統介面改寫為 Vue 元件架構，讓後續維護不再需要動整頁 HTML</li>
+              <li><strong>Web App 開發</strong>：獨立建置登入頁面，從設計到 Git commit 全程負責</li>
+              <li><strong>CURDoctor 視訊掛號</strong>：參與掛號視訊服務前端開發，產品最終上架 App Store 與 Google Play</li>
+              <li><strong>ISO 27001</strong>：協助公司服務通過認證，理解安全規範對前端實作的影響</li>
+              <li><strong>設計銜接</strong>：用 Sketch / Adobe XD 出稿，透過 Zeplin 直接對接自己的前端實作，消除規格落差</li>
+              <li>使用 Jira 進行跨團隊任務追蹤與協作</li>
+            </ul>
+          </div>
+          <div class="exp-tags">
+            <span class="tag">Vue.js</span><span class="tag">Git / GitLab</span>
+            <span class="tag">Sketch</span><span class="tag">Adobe XD</span><span class="tag">Zeplin</span>
+            <span class="tag">Element-UI</span><span class="tag">Jira</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">網頁設計師</div>
+            <div class="exp-period">2017/08 – 2018/07 &nbsp;·&nbsp; 1年</div>
+          </div>
+          <div class="exp-company">
+            詩木林數位科技 S.M.L. DIGITAL.
+            <span class="industry">電腦軟體服務業</span>
+          </div>
+          <div class="exp-desc">
+            參與網站與 APP 資訊架構規劃，產出 Web Wireframe 及 Mobile Wireframe。負責活動視覺頁面設計，協助 IT 團隊溝通視覺規格，具備跨職能溝通與專案整合能力。
+          </div>
+          <div class="exp-tags">
+            <span class="tag">Web Wireframe</span><span class="tag">Mobile Wireframe</span><span class="tag">專案管理</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">網頁設計師</div>
+            <div class="exp-period">2016/05 – 2017/04 &nbsp;·&nbsp; 1年</div>
+          </div>
+          <div class="exp-company">
+            益林事業有限公司
+            <span class="industry">網際網路相關業</span>
+          </div>
+          <div class="exp-desc">
+            使用 Bootstrap、HTML5 / CSS3 實作響應式網頁（RWD），負責六家企業官網前端切版。執行 Banner 設計、網頁資料維護，協助行銷部門規劃社群視覺與活動企劃。
+          </div>
+          <div class="exp-tags">
+            <span class="tag">Bootstrap</span><span class="tag">HTML5</span><span class="tag">CSS3</span>
+            <span class="tag">RWD</span><span class="tag">網頁切版</span><span class="tag">Banner 設計</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <div class="section">
+        <div class="section-title">技術技能</div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">前端開發</div>
+          <div class="skill-list">
+            <span class="chip hi">HTML5</span>
+            <span class="chip hi">CSS3</span>
+            <span class="chip hi">JavaScript</span>
+            <span class="chip hi">Vue.js</span>
+            <span class="chip">Bootstrap</span>
+            <span class="chip">Sass/SCSS</span>
+            <span class="chip">RWD</span>
+            <span class="chip">WordPress</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">UI/UX 設計</div>
+          <div class="skill-list">
+            <span class="chip">Sketch</span>
+            <span class="chip">Adobe XD</span>
+            <span class="chip">Zeplin</span>
+            <span class="chip">Figma</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">視覺設計</div>
+          <div class="skill-list">
+            <span class="chip">Illustrator</span>
+            <span class="chip">Photoshop</span>
+            <span class="chip">InDesign</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">開發工具</div>
+          <div class="skill-list">
+            <span class="chip">Git</span>
+            <span class="chip">GitHub</span>
+            <span class="chip">GitLab</span>
+            <span class="chip">VS Code</span>
+            <span class="chip">Vite</span>
+            <span class="chip">Sourcetree</span>
+            <span class="chip">Jira</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">精進中技能</div>
+        <div class="learn-item">
+          <div class="learn-row"><div class="learn-dot dot-h"></div>Vue 3 Composition API</div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-row"><div class="learn-dot dot-h"></div>JavaScript ES6+</div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-row"><div class="learn-dot dot-h"></div>TypeScript 基礎</div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-row"><div class="learn-dot dot-m"></div>Tailwind CSS</div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-row"><div class="learn-dot dot-m"></div>Vite 建構工具</div>
+        </div>
+        <p style="font-size:0.6875rem;color:var(--light);margin-top:0.75rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <span style="display:flex;align-items:center;gap:0.3rem;"><span style="width:0.5rem;height:0.5rem;border-radius:50%;background:#FFD600;display:inline-block;"></span>高優先</span>
+          <span style="display:flex;align-items:center;gap:0.3rem;"><span style="width:0.5rem;height:0.5rem;border-radius:50%;background:#aaa;display:inline-block;"></span>中優先</span>
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">學歷</div>
+        <div class="edu-item">
+          <div class="edu-school">國立虎尾科技大學</div>
+          <div class="edu-dept">多媒體設計系｜四技畢業</div>
+          <div class="edu-period">2011/09 – 2015/06</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">台中高工</div>
+          <div class="edu-dept">圖文傳播科</div>
+          <div class="edu-period">畢業 2011</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">證照</div>
+        <div class="cert-item">乙級印前製成技術士證</div>
+        <div class="cert-item">ACA Photoshop CS3</div>
+        <div class="cert-item">ACA Dreamweaver CS3</div>
+        <div class="cert-item">ACA Flash CS3</div>
+        <div class="cert-item">Microsoft Office Word 2007 進階版</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
