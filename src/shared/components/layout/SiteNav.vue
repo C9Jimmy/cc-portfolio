@@ -18,9 +18,13 @@ const base = import.meta.env.BASE_URL
   height: var(--nav-h);
   display: flex;
   align-items: center;
-  padding: 0 var(--section-px);
+  padding: 0 60px;
   background: transparent;
   z-index: 100;
+}
+
+@media (max-width: 767px) {
+  .nav { padding: 0 24px; }
 }
 
 .nav-logo {

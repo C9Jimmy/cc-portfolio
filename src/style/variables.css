@@ -10,8 +10,8 @@
 
   --font-sans: 'Helvetica Neue', 'PingFang TC', sans-serif;
 
-  --hero-size:     clamp(52px, 8vw, 96px);
-  --sec-title-size: clamp(32px, 4vw, 52px);
+  --hero-size:      clamp(56px, 9vw, 120px);
+  --sec-title-size: clamp(40px, 6vw, 70px);
   --ct-big-size:   clamp(40px, 6vw, 70px);
 
   --nav-h: 52px;

@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import GhostNumber from '@/shared/components/ui/GhostNumber.vue'
 import SectionTitle from '@/shared/components/ui/SectionTitle.vue'
 import SkillGroup from './SkillGroup.vue'
+import GitHubGraph from './GitHubGraph.vue'
 import { useRevealOnScroll } from '@/shared/composables/useRevealOnScroll'
 import { skillGroups } from '@/shared/data/resume'
 
@@ -15,6 +16,7 @@ const { isVisible } = useRevealOnScroll(sectionEl, 0.3)
     <GhostNumber number="05" />
     <div class="col">
       <SectionTitle text="Skills" />
+      <GitHubGraph />
       <div class="skills-grid" :class="{ vis: isVisible }">
         <SkillGroup v-for="group in skillGroups" :key="group.label" :group="group" />
       </div>

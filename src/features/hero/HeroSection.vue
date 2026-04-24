@@ -49,7 +49,7 @@ const floaters = [
             <textPath href="#heroSealPath" startOffset="0%" textLength="540" lengthAdjust="spacing">SEND A PIGEON  •  OR SEND AN EMAIL  •  SEND A PIGEON  •  OR SEND AN EMAIL  •  </textPath>
           </text>
         </g>
-        <image :href="`${base}images/260422-pigeon-mail.svg`" x="80" y="80" width="200" height="200"/>
+        <image :href="`${base}images/260422-pigeon-mail.svg`" x="108" y="108" width="144" height="144"/>
       </svg>
     </a>
 
@@ -138,9 +138,9 @@ const floaters = [
   display: block;
   font-size: var(--hero-size);
   font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -4px;
-  margin-bottom: 32px;
+  line-height: 1;
+  letter-spacing: -5px;
+  margin-bottom: 20px;
 }
 
 .hero-row { display: block; overflow: hidden; }

@@ -22,10 +22,11 @@ defineProps<{ group: SkillGroup }>()
 
 .sg-label {
   font-size: 10px;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   text-transform: uppercase;
   color: var(--gray2);
   font-weight: 600;
+  margin-bottom: 4px;
 }
 
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }

@@ -16,7 +16,7 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
 .col {
-  width: min(900px, 100%);
+  width: min(820px, 100%);
   margin: 0 auto;
 }
 
@@ -42,10 +42,10 @@ img { display: block; max-width: 100%; }
   opacity: 0.03;
   left: 50%;
   right: auto;
-  bottom: 8%;
+  bottom: 0;
   z-index: 0;
   transform: perspective(900px) rotateX(0deg) rotateY(0deg);
-  transform-origin: center center;
+  transform-origin: center bottom;
   transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
   will-change: transform;
 }
@@ -54,21 +54,22 @@ img { display: block; max-width: 100%; }
 .sec-title {
   font-size: var(--sec-title-size);
   font-weight: 900;
-  letter-spacing: -2px;
+  letter-spacing: -3px;
+  line-height: 0.95;
   margin-bottom: 48px;
 }
 
-.sec-hl { position: relative; display: inline-block; }
+.sec-hl { position: relative; display: inline-block; isolation: isolate; }
 
 .sec-hl::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: 10px;
   height: 6px;
   width: 0;
   background: var(--yellow);
-  border-radius: 3px;
+  z-index: -1;
   transition: width 0.75s 0.15s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -77,18 +78,19 @@ img { display: block; max-width: 100%; }
 /* Chip */
 .chip {
   display: inline-block;
-  font-size: 11px;
-  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
   border: 1px solid var(--border);
-  border-radius: 100px;
-  color: var(--gray);
-  letter-spacing: 0.3px;
+  border-radius: 3px;
+  color: var(--black);
+  letter-spacing: 0.2px;
 }
 
 .chip.hi {
-  border-color: var(--black);
-  color: var(--black);
-  font-weight: 600;
+  background: var(--yellow);
+  border-color: var(--yellow);
+  font-weight: 700;
 }
 
 /* Tag */
@@ -108,5 +110,5 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 767px) {
   .section { padding: 80px var(--section-px); min-height: auto; }
-  .ghost { font-size: clamp(80px, 22vw, 120px); bottom: 4%; left: 40%; transform: none; transition: none; }
+  .ghost { font-size: clamp(80px, 22vw, 120px); bottom: 0; left: 50%; transform: none; transition: none; }
 }

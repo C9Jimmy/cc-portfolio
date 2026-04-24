@@ -2,6 +2,7 @@
 import { onMounted, onUnmounted } from 'vue'
 import SiteNav from '@/shared/components/layout/SiteNav.vue'
 import SiteFooter from '@/shared/components/layout/SiteFooter.vue'
+import PageProgress from '@/shared/components/layout/PageProgress.vue'
 import HeroSection from '@/features/hero/HeroSection.vue'
 import AboutSection from '@/features/about/AboutSection.vue'
 import ExpSection from '@/features/exp/ExpSection.vue'
@@ -45,6 +46,7 @@ onUnmounted(() => { cleanups.forEach(fn => fn()) })
 
 <template>
   <SiteNav />
+  <PageProgress />
   <main>
     <HeroSection />
     <AboutSection />
