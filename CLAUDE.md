@@ -5,6 +5,14 @@
 程資閔（Chris Cheng）個人履歷網站，設計參考 `docs/prototypes/v2.html`（存放於 Google Drive）。
 Vue 3 + Vite 4 + TypeScript，部署於 GitHub Pages（base: `/cc-portfolio/`）。
 
+## 環境版本
+
+| 項目 | 版本 | 備注 |
+|---|---|---|
+| Node.js | v24.14.0 | `.nvmrc` 已鎖定，`nvm use` 自動切換 |
+| Vite | 4.5.x | 固定 v4，v5/v8 在 macOS 有 native binding 問題 |
+| TypeScript | 5.3.x | 固定，v5.8+ 選項與 v4 不相容 |
+
 ## 開發規則
 
 ### 資料修改

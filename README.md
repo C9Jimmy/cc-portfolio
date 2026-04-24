@@ -13,6 +13,15 @@
 | 圖示 | Font Awesome 6（CDN，無 emoji） |
 | 部署 | GitHub Pages（`/cc-portfolio/` base path）|
 
+## 環境需求
+
+| 項目 | 版本 |
+|---|---|
+| Node.js | v24.14.0（`>=20` 可運行，建議與 `.nvmrc` 一致）|
+| npm | 隨 Node 附帶 |
+
+> 使用 nvm：`nvm use`（自動讀取 `.nvmrc`）
+
 ## 本機開發
 
 ```bash
