@@ -7,11 +7,35 @@ Vue 3 + Vite 4 + TypeScript，部署於 GitHub Pages（base: `/cc-portfolio/`）
 
 ## 環境版本
 
-| 項目 | 版本 | 備注 |
+### 執行環境
+
+| 項目 | 精確版本 | 備注 |
 |---|---|---|
 | Node.js | v24.14.0 | `.nvmrc` 已鎖定，`nvm use` 自動切換 |
-| Vite | 4.5.x | 固定 v4，v5/v8 在 macOS 有 native binding 問題 |
-| TypeScript | 5.3.x | 固定，v5.8+ 選項與 v4 不相容 |
+| npm | 11.8.0 | 隨 Node 附帶 |
+
+### 核心框架
+
+| 套件 | 精確版本 | 備注 |
+|---|---|---|
+| vue | 3.5.33 | Composition API + `<script setup>` |
+| vite | 4.5.14 | **固定 v4**，v5/v8 在 macOS 有 native binding 問題 |
+| typescript | 5.3.3 | **固定 5.3.x**，v5.8+ 選項（`erasableSyntaxOnly` 等）與此不相容 |
+
+### 開發工具
+
+| 套件 | 精確版本 |
+|---|---|
+| @vitejs/plugin-vue | 4.6.2 |
+| vue-tsc | 1.8.27 |
+| @vue/tsconfig | 0.5.1 |
+| @types/node | 20.19.39 |
+
+### 執行時相依
+
+| 套件 | 精確版本 | 用途 |
+|---|---|---|
+| @vueuse/core | 14.2.1 | composables 工具庫（useIntersectionObserver 等）|
 
 ## 開發規則
 

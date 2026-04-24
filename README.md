@@ -4,23 +4,29 @@
 
 ## 技術棧
 
-| 項目 | 選擇 |
-|---|---|
-| 框架 | Vue 3 Composition API + `<script setup>` |
-| 建置工具 | Vite 4（使用 rollup 3，避免 macOS native binding 問題）|
-| 型別 | TypeScript 5.3 |
-| 樣式 | Scoped CSS + 全域 CSS 變數 |
-| 圖示 | Font Awesome 6（CDN，無 emoji） |
-| 部署 | GitHub Pages（`/cc-portfolio/` base path）|
+| 項目 | 套件 | 精確版本 |
+|---|---|---|
+| 框架 | vue | 3.5.33 |
+| 建置工具 | vite | 4.5.14（固定 v4，v5/v8 macOS native binding 問題）|
+| 型別系統 | typescript | 5.3.3（固定 5.3.x）|
+| Vue 型別 | vue-tsc | 1.8.27 |
+| Vite 外掛 | @vitejs/plugin-vue | 4.6.2 |
+| Composables | @vueuse/core | 14.2.1 |
+| 樣式 | Scoped CSS + 全域 CSS 變數 | — |
+| 圖示 | Font Awesome 6 CDN | — |
+| 部署 | GitHub Pages（`/cc-portfolio/`）| — |
 
 ## 環境需求
 
-| 項目 | 版本 |
-|---|---|
-| Node.js | v24.14.0（`>=20` 可運行，建議與 `.nvmrc` 一致）|
-| npm | 隨 Node 附帶 |
+| 項目 | 精確版本 | 備注 |
+|---|---|---|
+| Node.js | v24.14.0 | `.nvmrc` 已鎖定 |
+| npm | 11.8.0 | 隨 Node 附帶 |
 
-> 使用 nvm：`nvm use`（自動讀取 `.nvmrc`）
+```bash
+# 使用 nvm 自動切換（讀取 .nvmrc）
+nvm use
+```
 
 ## 本機開發
 
