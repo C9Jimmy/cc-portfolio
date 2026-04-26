@@ -16,41 +16,6 @@
 | 圖示 | Font Awesome 6 CDN | — |
 | 部署 | GitHub Pages（`/cc-portfolio/`）| — |
 
-## 環境需求
-
-| 項目 | 精確版本 | 備注 |
-|---|---|---|
-| Node.js | v24.14.0 | `.nvmrc` 已鎖定 |
-| npm | 11.8.0 | 隨 Node 附帶 |
-
-```bash
-# 使用 nvm 自動切換（讀取 .nvmrc）
-nvm use
-```
-
-## 本機開發
-
-```bash
-# 安裝相依套件
-npm install
-
-# 啟動開發伺服器
-npm run dev
-# → http://localhost:5173/cc-portfolio/
-```
-
-## 建置與部署
-
-```bash
-# 型別檢查 + 建置
-npm run build
-
-# 預覽 production build
-npm run preview
-```
-
-部署透過 `.github/workflows/deploy.yml` 自動執行，push 到 `main` 即觸發。
-
 ## 專案結構
 
 ```
