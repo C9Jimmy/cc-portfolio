@@ -6,15 +6,13 @@ defineProps<{ item: ExpItem }>()
 <template>
   <div class="exp-row">
     <div class="exp-year">
-      <span v-for="(line, i) in item.period.split('—')" :key="i">
-        {{ line.trim() }}<br v-if="i === 0" />
-      </span>
-      <br />
-      {{ item.duration }}
+      <span class="exp-date">{{ item.period }}</span>
+      <span class="exp-duration">{{ item.duration }}</span>
     </div>
-    <div class="exp-body">
+    <div class="exp-main">
       <div class="exp-role">{{ item.role }}</div>
       <div class="exp-co">{{ item.company }} <span class="tag">{{ item.industry }}</span></div>
+      <span class="exp-date-mobile">{{ item.period }}</span>
       <p class="exp-desc">{{ item.description }}</p>
       <div class="tag-row">
         <span v-for="chip in item.chips" :key="chip" class="chip">{{ chip }}</span>
@@ -44,12 +42,25 @@ defineProps<{ item: ExpItem }>()
 }
 
 .exp-year {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 4px;
+}
+
+.exp-date {
   font-size: 11px;
   color: var(--gray2);
   letter-spacing: 0.5px;
-  line-height: 1.8;
-  padding-top: 4px;
+  line-height: 1.6;
   white-space: nowrap;
+}
+
+.exp-duration {
+  font-size: 11px;
+  color: var(--gray2);
+  letter-spacing: 0.5px;
+  line-height: 1.6;
 }
 
 .exp-role {
@@ -77,8 +88,20 @@ defineProps<{ item: ExpItem }>()
 
 .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
 
+.exp-date-mobile { display: none; }
+
 @media (max-width: 767px) {
-  .exp-row { grid-template-columns: 1fr; gap: 12px; }
+  .exp-row { grid-template-columns: 1fr; gap: 0; }
   .exp-row:hover { padding-top: 24px; padding-bottom: 24px; }
+  .exp-year { display: none; }
+  .exp-date-mobile {
+    display: block;
+    font-size: 11px;
+    color: var(--gray2);
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .exp-co { margin-bottom: 4px; }
 }
 </style>

@@ -51,8 +51,7 @@ const allWeeks     = computed(() => data.value ? chunkByWeek(data.value.contribu
 const desktopWeeks = computed(() => allWeeks.value)
 const mobileWeeks  = computed(() => allWeeks.value.slice(-20))
 
-const thisYear = computed(() => String(new Date().getFullYear()))
-const total    = computed(() => data.value?.total[thisYear.value] ?? 0)
+const total = computed(() => data.value?.total['lastYear'] ?? 0)
 const svgH     = 7 * STEP + TOP
 
 function svgW(weeks: Contribution[][]) { return weeks.length * STEP }
@@ -82,7 +81,7 @@ function tip(c: Contribution) {
     <div class="gh-meta">
       <span class="gh-total" v-if="!loading && !failed">
         <i class="fa-brands fa-github"></i>
-        {{ total.toLocaleString() }} contributions in {{ thisYear }}
+        {{ total.toLocaleString() }} contributions in the last year
       </span>
       <a
         :href="`https://github.com/${GITHUB_USER}`"

@@ -5,7 +5,7 @@ const base = import.meta.env.BASE_URL
 <template>
   <nav class="nav">
     <span class="nav-logo">
-      <img :src="`${base}images/cc-icon-y.png`" class="nav-logo-dot" alt="" aria-hidden="true" />
+      <img :src="`${base}images/cc-icon-y.svg`" class="nav-logo-dot" alt="" aria-hidden="true" />
       CHRIS CHENG
     </span>
   </nav>
@@ -38,9 +38,8 @@ const base = import.meta.env.BASE_URL
 }
 
 .nav-logo-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  width: 12px;
+  height: 12px;
   display: block;
   flex-shrink: 0;
 }

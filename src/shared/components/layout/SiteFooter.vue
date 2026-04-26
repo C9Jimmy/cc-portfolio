@@ -5,8 +5,13 @@ import { profile } from '@/shared/data/resume'
 <template>
   <footer class="site-footer">
     <div class="footer-inner">
-      <span class="footer-copy">© 2026 {{ profile.nameEn }}</span>
-      <span class="footer-copy">Built with Vue 3 + Vite</span>
+      <span class="footer-copy">Copyleft © [what-year-is-this] {{ profile.nameEn }}</span>
+      <span class="footer-role">
+        <span class="status-dot"></span>
+        <span class="role-primary">Frontend Engineer</span>
+        <span class="role-sep">·</span>
+        <span class="role-secondary">UI/UX Designer</span>
+      </span>
     </div>
   </footer>
 </template>
@@ -53,7 +58,51 @@ import { profile } from '@/shared/data/resume'
   letter-spacing: 1px;
 }
 
+/* Desktop / tablet: Primary · ● · Secondary */
+.footer-role {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  order: 2;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.role-primary  { order: 1; }
+.role-sep      { order: 3; display: none; }
+.role-secondary { order: 4; }
+
+/* Mobile: grid layout
+   ● Frontend Engineer
+   · UI/UX Designer     */
 @media (max-width: 767px) {
-  .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  .footer-role {
+    display: grid;
+    grid-template-areas:
+      "dot primary"
+      "sep secondary";
+    grid-template-columns: auto 1fr;
+    gap: 3px 6px;
+    align-items: center;
+  }
+
+  .status-dot  { grid-area: dot;       order: unset; }
+  .role-primary { grid-area: primary;  order: unset; }
+  .role-sep    { grid-area: sep;       order: unset; display: block; color: rgba(255,255,255,0.3); }
+  .role-secondary { grid-area: secondary; order: unset; }
 }
 </style>

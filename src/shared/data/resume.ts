@@ -11,6 +11,7 @@ export const profile: Profile = {
     { platform: 'linkedin',  label: 'LinkedIn',  url: 'https://linkedin.com/in/chris-cheng-37a99a158',       icon: 'fa-brands fa-linkedin' },
     { platform: 'codepen',   label: 'Codepen',   url: 'https://codepen.io/c9jimmy',                          icon: 'fa-brands fa-codepen' },
     { platform: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/zihmincheng/',              icon: 'fa-brands fa-instagram' },
+    { platform: 'line',      label: 'LINE',      url: 'https://store.line.me/stickershop/author/5603809/zh-Hant', icon: 'fa-brands fa-line' },
   ],
 }
 

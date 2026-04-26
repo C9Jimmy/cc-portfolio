@@ -5,6 +5,7 @@ const SECTIONS = ['hero', 'about', 'exp', 'projects', 'skills', 'visual', 'conta
 const activeIdx = ref(0)
 
 const isOnDark = computed(() => activeIdx.value === SECTIONS.length - 1)
+const isOnHero = computed(() => activeIdx.value === 0)
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -34,7 +35,7 @@ onUnmounted(() => obs?.disconnect())
 </script>
 
 <template>
-  <nav class="page-prog" :class="{ 'on-dark': isOnDark }" aria-label="頁面導覽">
+  <nav v-show="!isOnHero" class="page-prog" :class="{ 'on-dark': isOnDark }" aria-label="頁面導覽">
     <button
       v-for="(id, i) in SECTIONS"
       :key="id"
@@ -74,14 +75,14 @@ onUnmounted(() => obs?.disconnect())
   transform: scale(1.3);
 }
 
-/* Contact 區塊是深色背景，改為白色點 */
+/* Contact 區塊是深色背景，改為黃色點 */
 .on-dark .prog-dot {
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .on-dark .prog-dot.active {
-  background: #fff;
-  border-color: #fff;
+  background: var(--yellow);
+  border-color: var(--yellow);
 }
 
 @media (max-width: 767px) {

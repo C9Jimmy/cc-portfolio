@@ -15,16 +15,16 @@ const base = import.meta.env.BASE_URL
         的產品。
       </h2>
       <div class="ct-meta">
-        <span><i class="fa-solid fa-envelope"></i>
-          <a :href="`mailto:${profile.email}`">{{ profile.email }}</a>
+        <span>
+          <i class="fa-solid fa-envelope"></i>
+          {{ profile.nameEn }} · <a :href="`mailto:${profile.email}`">{{ profile.email }}</a>
         </span>
-        <span><i class="fa-solid fa-location-dot"></i>{{ profile.location }}</span>
       </div>
       <div class="ct-btns">
         <a :href="`mailto:${profile.email}`" class="btn btn-light">
           <i class="fa-solid fa-paper-plane fa-xs"></i>寄送 Email
         </a>
-        <a href="/cc-portfolio/resume.pdf" download class="btn btn-outline">
+        <a :href="`${base}程資閔 Chris Cheng｜前端工程師.pdf`" download class="btn btn-outline">
           <i class="fa-solid fa-file-arrow-down fa-xs"></i>下載履歷
         </a>
       </div>
@@ -53,26 +53,6 @@ const base = import.meta.env.BASE_URL
   overflow-x: clip;
 }
 
-/* white → black wave at top of Contact section */
-.ct-section::before {
-  content: '';
-  position: absolute;
-  left: -50%;
-  top: -112px;
-  width: 200%;
-  height: 208px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 208' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,88 C64,152 192,24 320,88 C448,152 576,24 720,88 C864,152 992,24 1120,88 C1248,152 1376,24 1440,88 L1440,208 L0,208 Z'/%3E%3C/svg%3E");
-  background-size: 50% 100%;
-  background-repeat: repeat-x;
-  animation: ctWaveSway 11s ease-in-out infinite alternate;
-  pointer-events: none;
-  z-index: 0;
-}
-
-@keyframes ctWaveSway {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-10%); }
-}
 
 .ct-plane {
   position: absolute;
@@ -99,7 +79,7 @@ const base = import.meta.env.BASE_URL
   margin-bottom: 40px;
 }
 
-.ct-yl { color: var(--yellow); }
+.ct-yl { background: var(--yellow); color: var(--black); padding: 0 8px; }
 
 .ct-meta {
   display: flex;
@@ -111,10 +91,11 @@ const base = import.meta.env.BASE_URL
 }
 
 .ct-meta span { display: flex; align-items: center; gap: 8px; }
+.ct-meta i { color: var(--yellow); font-size: 12px; }
 .ct-meta a { color: rgba(255,255,255,0.75); transition: color 0.2s; }
-.ct-meta a:hover { color: #fff; }
+.ct-meta a:hover { color: var(--yellow); }
 
-.ct-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 48px; }
+.ct-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
 
 .btn {
   display: inline-flex;
@@ -129,8 +110,8 @@ const base = import.meta.env.BASE_URL
   text-decoration: none;
 }
 
-.btn-light { background: #fff; color: var(--black); }
-.btn-light:hover { background: var(--yellow); }
+.btn-light { background: var(--yellow); color: var(--black); }
+.btn-light:hover { background: #fff; }
 
 .btn-outline { border: 1.5px solid rgba(255,255,255,0.3); color: #fff; }
 .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
@@ -144,7 +125,6 @@ const base = import.meta.env.BASE_URL
 .social-item {
   width: 44px; height: 44px;
   display: flex; align-items: center; justify-content: center;
-  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 50%;
   font-size: 18px;
   color: rgba(255,255,255,0.72);
@@ -153,7 +133,7 @@ const base = import.meta.env.BASE_URL
 
 .social-item:hover {
   color: var(--yellow);
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 214, 0, 0.12);
   transform: translateY(-1px);
 }
 
