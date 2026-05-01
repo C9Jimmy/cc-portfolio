@@ -6,7 +6,6 @@ import PageProgress from '@/shared/components/layout/PageProgress.vue'
 import HeroSection from '@/features/hero/HeroSection.vue'
 import AboutSection from '@/features/about/AboutSection.vue'
 import ExpSection from '@/features/exp/ExpSection.vue'
-import ProjectsSection from '@/features/projects/ProjectsSection.vue'
 import SkillsSection from '@/features/skills/SkillsSection.vue'
 import VisualSection from '@/features/visual/VisualSection.vue'
 import ContactSection from '@/features/contact/ContactSection.vue'
@@ -51,7 +50,6 @@ onUnmounted(() => { cleanups.forEach(fn => fn()) })
     <HeroSection />
     <AboutSection />
     <ExpSection />
-    <ProjectsSection />
     <SkillsSection />
     <VisualSection />
     <ContactSection />

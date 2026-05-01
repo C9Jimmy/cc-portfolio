@@ -101,9 +101,10 @@ function tip(c: Contribution) {
       <div class="gh-wrap graph-desktop">
         <svg
           class="gh-svg"
-          :width="svgW(desktopWeeks)"
+          width="100%"
           :height="svgH"
           :viewBox="`0 0 ${svgW(desktopWeeks)} ${svgH}`"
+          preserveAspectRatio="xMinYMin meet"
         >
           <text
             v-for="m in monthLabels(desktopWeeks)"
@@ -129,9 +130,10 @@ function tip(c: Contribution) {
       <div class="gh-wrap graph-mobile">
         <svg
           class="gh-svg"
-          :width="svgW(mobileWeeks)"
+          width="100%"
           :height="svgH"
           :viewBox="`0 0 ${svgW(mobileWeeks)} ${svgH}`"
+          preserveAspectRatio="xMinYMin meet"
         >
           <text
             v-for="m in monthLabels(mobileWeeks)"
@@ -185,7 +187,7 @@ function tip(c: Contribution) {
 .gh-link:hover { color: var(--black); }
 
 .gh-wrap { overflow-x: auto; }
-.gh-svg  { display: block; }
+.gh-svg  { display: block; height: auto; }
 
 .gh-month {
   font-size: 9px;

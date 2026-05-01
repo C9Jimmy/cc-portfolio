@@ -6,7 +6,7 @@ const base = import.meta.env.BASE_URL
 
 <template>
   <section class="section ct-section" id="contact">
-    <GhostNumber number="07" :light="true" />
+    <GhostNumber number="06" :light="true" />
     <img :src="`${base}images/260422-paper-plane.svg`" class="ct-plane" alt="" aria-hidden="true" />
     <div class="col">
       <h2 class="ct-big">
@@ -57,18 +57,18 @@ const base = import.meta.env.BASE_URL
 .ct-plane {
   position: absolute;
   right: 8%;
-  top: 50%;
-  transform: translateY(-55%);
+  top: 34%;
+  transform: translateY(-50%);
   width: 250px;
-  opacity: 0.18;
+  opacity: 0.09;
   filter: brightness(0) invert(1);
   animation: planeDrift 8s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
 @keyframes planeDrift {
-  from { transform: translateY(-55%) translate(0, 0) rotate(-3deg); }
-  to   { transform: translateY(-55%) translate(18px, -14px) rotate(5deg); }
+  from { transform: translateY(-50%) translate(0, 0) rotate(-3deg); }
+  to   { transform: translateY(-50%) translate(18px, -14px) rotate(5deg); }
 }
 
 .ct-big {

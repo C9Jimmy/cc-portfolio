@@ -8,7 +8,7 @@ export interface Profile {
 }
 
 export interface SocialLink {
-  platform: 'github' | 'linkedin' | 'codepen' | 'instagram'
+  platform: 'github' | 'linkedin' | 'codepen' | 'instagram' | 'line'
   label: string
   url: string
   icon: string
@@ -30,6 +30,17 @@ export interface ProjectItem {
   meta: string
   url?: string
   featured?: boolean
+}
+
+export interface ProjectCard {
+  type: string
+  name: string
+  year: string
+  icon: string
+  bg: string
+  url?: string
+  desc: string
+  tags: string[]
 }
 
 export interface SkillGroup {

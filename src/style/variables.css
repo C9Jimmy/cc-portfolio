@@ -8,7 +8,7 @@
   --border: #e5e5e5;
   --yellow-tint: #FFFDE7;
 
-  --font-sans: 'Helvetica Neue', 'PingFang TC', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Noto Sans TC', 'Helvetica Neue', 'PingFang TC', sans-serif;
 
   --hero-size:      clamp(56px, 9vw, 120px);
   --sec-title-size: clamp(40px, 6vw, 70px);

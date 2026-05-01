@@ -10,10 +10,9 @@ App.vue
 │   ├── HeroSection.vue  # 01 — 主視覺
 │   ├── AboutSection.vue # 02 — 自我介紹
 │   ├── ExpSection.vue   # 03 — 工作經歷
-│   ├── ProjectsSection.vue # 04 — 專案列表
-│   ├── SkillsSection.vue   # 05 — 技能
-│   ├── VisualSection.vue   # 06 — 視覺作品
-│   └── ContactSection.vue  # 07 — 聯絡
+│   ├── SkillsSection.vue   # 04 — 技能
+│   ├── VisualSection.vue   # 05 — Projects carousel
+│   └── ContactSection.vue  # 06 — 聯絡
 └── SiteFooter.vue
 ```
 
@@ -23,12 +22,14 @@ App.vue
 src/shared/data/resume.ts
   ├── profile          → HeroSection, ContactSection
   ├── expItems         → ExpSection → ExpRow（v-for）
-  ├── projectItems     → ProjectsSection → ProjectRow（v-for）
   ├── skillGroups      → SkillsSection → SkillGroup（v-for）
-  └── visuals          → VisualSection → VisualCarousel
+  ├── projectItems     → 舊版專案列表資料（保留）
+  ├── projectCards     → VisualSection → VisualCarousel（v-for）
+  └── visuals          → 舊版視覺作品資料（保留）
 ```
 
 所有內容資料只存在 `resume.ts`，元件透過 props 接收，不直接存取資料檔案（除了 section 級別的父元件）。
+Projects carousel 的位置與翻牌狀態由 `v-for` 產生的陣列索引控制，內容資料不需要維護手動排序 id。
 
 ## 互動效果
 
@@ -58,7 +59,7 @@ IntersectionObserver（threshold 可配置）
 ### PageProgress（PageProgress.vue）
 ```
 IntersectionObserver（threshold: 0.5）→ 更新 activeIdx
-7 個 section id：hero, about, exp, projects, skills, visual, contact
+6 個 section id：hero, about, exp, skills, projects, contact
 Contact（深色背景）時自動切換為白色點樣式
 ```
 

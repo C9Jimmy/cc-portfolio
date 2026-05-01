@@ -1,15 +1,14 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
-const TOTAL = 5
-
-export function useCarousel() {
+export function useCarousel(total: number) {
   const centerIdx = ref(0)
   const flippedIdx = ref<number | null>(null)
+  const itemCount = Math.max(total, 1)
 
   function positionFor(i: number): string {
     let offset = i - centerIdx.value
-    if (offset > TOTAL / 2) offset -= TOTAL
-    if (offset < -TOTAL / 2) offset += TOTAL
+    if (offset > itemCount / 2) offset -= itemCount
+    if (offset < -itemCount / 2) offset += itemCount
     if (offset === 0)  return 'pos-center'
     if (offset === 1)  return 'pos-right1'
     if (offset === 2)  return 'pos-right2'
@@ -18,9 +17,9 @@ export function useCarousel() {
     return 'pos-hidden'
   }
 
-  function next() { centerIdx.value = (centerIdx.value + 1) % TOTAL; flippedIdx.value = null }
-  function prev() { centerIdx.value = (centerIdx.value - 1 + TOTAL) % TOTAL; flippedIdx.value = null }
-  function goTo(idx: number) { centerIdx.value = ((idx % TOTAL) + TOTAL) % TOTAL; flippedIdx.value = null }
+  function next() { centerIdx.value = (centerIdx.value + 1) % itemCount; flippedIdx.value = null }
+  function prev() { centerIdx.value = (centerIdx.value - 1 + itemCount) % itemCount; flippedIdx.value = null }
+  function goTo(idx: number) { centerIdx.value = ((idx % itemCount) + itemCount) % itemCount; flippedIdx.value = null }
 
   function clickCard(idx: number) {
     const pos = positionFor(idx)
@@ -31,9 +30,5 @@ export function useCarousel() {
     }
   }
 
-  const dots = computed(() =>
-    Array.from({ length: TOTAL }, (_, i) => ({ active: i === centerIdx.value, idx: i }))
-  )
-
-  return { centerIdx, flippedIdx, positionFor, next, prev, goTo, clickCard, dots }
+  return { flippedIdx, positionFor, next, prev, clickCard }
 }

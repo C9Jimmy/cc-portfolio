@@ -13,7 +13,7 @@ const { isVisible } = useRevealOnScroll(sectionEl, 0.3)
 
 <template>
   <section ref="sectionEl" class="section" id="skills">
-    <GhostNumber number="05" />
+    <GhostNumber number="04" />
     <div class="col">
       <SectionTitle text="Skills" />
       <GitHubGraph />

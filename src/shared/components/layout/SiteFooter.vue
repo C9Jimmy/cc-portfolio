@@ -58,11 +58,11 @@ import { profile } from '@/shared/data/resume'
   letter-spacing: 1px;
 }
 
-/* Desktop / tablet: Primary · ● · Secondary */
+/* Desktop / tablet: Primary ● Secondary */
 .footer-role {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .status-dot {
@@ -84,25 +84,20 @@ import { profile } from '@/shared/data/resume'
 .role-sep      { order: 3; display: none; }
 .role-secondary { order: 4; }
 
-/* Mobile: grid layout
-   ● Frontend Engineer
-   · UI/UX Designer     */
+/* Mobile: ● Frontend Engineer · UI/UX Designer */
 @media (max-width: 767px) {
   .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
 
   .footer-role {
-    display: grid;
-    grid-template-areas:
-      "dot primary"
-      "sep secondary";
-    grid-template-columns: auto 1fr;
-    gap: 3px 6px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6px;
     align-items: center;
   }
 
-  .status-dot  { grid-area: dot;       order: unset; }
-  .role-primary { grid-area: primary;  order: unset; }
-  .role-sep    { grid-area: sep;       order: unset; display: block; color: rgba(255,255,255,0.3); }
-  .role-secondary { grid-area: secondary; order: unset; }
+  .status-dot  { order: 1; }
+  .role-primary { order: 2; }
+  .role-sep    { order: 3; display: inline; color: var(--gray2); font-weight: 500; }
+  .role-secondary { order: 4; }
 }
 </style>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 
-const SECTIONS = ['hero', 'about', 'exp', 'projects', 'skills', 'visual', 'contact']
+const SECTIONS = ['hero', 'about', 'exp', 'skills', 'projects', 'contact']
 const activeIdx = ref(0)
 
 const isOnDark = computed(() => activeIdx.value === SECTIONS.length - 1)
