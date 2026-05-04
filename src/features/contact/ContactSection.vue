@@ -50,6 +50,7 @@ const base = import.meta.env.BASE_URL
 .ct-section {
   background: var(--black);
   color: #fff;
+  padding-bottom: 0;
   overflow-x: clip;
 }
 
@@ -60,8 +61,8 @@ const base = import.meta.env.BASE_URL
   top: 34%;
   transform: translateY(-50%);
   width: 250px;
-  opacity: 0.09;
-  filter: brightness(0) invert(1);
+  opacity: 0.06;
+  filter: brightness(0) invert(1) contrast(0.8);
   animation: planeDrift 8s ease-in-out infinite alternate;
   pointer-events: none;
 }

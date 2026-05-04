@@ -20,7 +20,7 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
         <div class="c-card-inner">
           <div class="c-face c-front" :class="card.bg">
             <div class="c-deco"><i :class="`fa-solid ${card.icon}`"></i></div>
-            <div>
+            <div class="c-front-copy">
               <div class="c-type">{{ card.type }}</div>
               <div class="c-name">{{ card.name }}</div>
               <div class="c-year">{{ card.year }}</div>
@@ -34,7 +34,7 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
               <span v-for="t in card.tags" :key="t" class="c-back-tag">{{ t }}</span>
             </div>
             <a v-if="card.url" :href="card.url" target="_blank" rel="noopener noreferrer" class="c-back-link" @click.stop>
-              查看連結 <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i>
+              Open Project <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i>
             </a>
             <div class="c-back-hint">close</div>
           </div>
@@ -99,17 +99,15 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
   justify-content: space-between;
 }
 
-.c-front { background: var(--black); color: #fff; }
-.bg-1 { background: linear-gradient(145deg, #FFF176 0%, #FFD600 48%, #F59E0B 100%); }
-.bg-2 { background: linear-gradient(145deg, #FFE082 0%, #FFC107 48%, #FF8F00 100%); }
-.bg-3 { background: linear-gradient(145deg, #FFF9C4 0%, #FDD835 48%, #F9A825 100%); }
-.bg-4 { background: linear-gradient(145deg, #FDE68A 0%, #FACC15 48%, #D97706 100%); }
-.bg-5 { background: linear-gradient(145deg, #FEF3C7 0%, #FBBF24 48%, #F97316 100%); }
-.bg-6 { background: linear-gradient(145deg, #ECFCCB 0%, #D9F99D 38%, #EAB308 100%); }
-.bg-7 { background: linear-gradient(145deg, #FFECB3 0%, #FFD54F 48%, #FB8C00 100%); }
-.bg-8 { background: linear-gradient(145deg, #FFF7AD 0%, #FFE14D 48%, #D6A400 100%); }
-.bg-9 { background: linear-gradient(145deg, #F7F37A 0%, #E6C229 48%, #B7791F 100%); }
-.bg-10 { background: linear-gradient(145deg, #FFF3B0 0%, #FFD166 48%, #E09F3E 100%); }
+.c-front {
+  background: var(--black);
+  color: #fff;
+  padding: 28px 24px 30px;
+}
+.bg-web    { background: linear-gradient(145deg, #3a6a8a 0%, #1e2b38 100%); }
+.bg-app    { background: linear-gradient(145deg, #a85a20 0%, #3d1808 100%); }
+.bg-webapp { background: linear-gradient(145deg, #4a7a6a 0%, #0d1f18 100%); }
+.bg-seo    { background: linear-gradient(145deg, #506070 0%, #111827 100%); }
 
 .c-back {
   background: #fff;
@@ -118,10 +116,21 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
   border: 1px solid var(--border);
 }
 
-.c-deco { font-size: 32px; color: var(--yellow); }
-.c-type { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.72); margin-bottom: 4px; }
-.c-name { font-size: 20px; font-weight: 700; color: #fff; }
-.c-year { font-size: 11px; color: rgba(255,255,255,0.72); margin-top: 4px; }
+.c-deco {
+  align-self: flex-end;
+  width: 52px;
+  height: 52px;
+  border: 2px solid rgba(255,255,255,0.55);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: rgba(255,255,255,0.8);
+}
+.c-type { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.72); margin-bottom: 7px; }
+.c-name { font-size: 21px; line-height: 1.15; font-weight: 800; color: #fff; }
+.c-year { font-size: 14px; line-height: 1.4; color: rgba(255,255,255,0.72); margin-top: 7px; }
 
 .c-back-type { font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gray2); margin-bottom: 18px; }
 .c-back-title { font-size: 21px; font-weight: 800; margin-bottom: 18px; }

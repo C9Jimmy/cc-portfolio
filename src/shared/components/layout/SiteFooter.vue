@@ -19,9 +19,10 @@ import { profile } from '@/shared/data/resume'
 <style scoped>
 .site-footer {
   position: relative;
-  background: var(--black);
+  background: var(--white);
   color: var(--gray2);
-  padding: 28px var(--section-px);
+  padding: 0 var(--section-px);
+  margin-top: -1px;
   overflow-x: clip;
 }
 
@@ -30,13 +31,13 @@ import { profile } from '@/shared/data/resume'
   content: '';
   position: absolute;
   top: -112px;
-  bottom: 0;
   left: -50%;
   width: 200%;
+  height: 178px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 178' preserveAspectRatio='none'%3E%3Cpath fill='%23ffffff' d='M0,88 C64,152 192,24 320,88 C448,152 576,24 720,88 C864,152 992,24 1120,88 C1248,152 1376,24 1440,88 L1440,178 L0,178 Z'/%3E%3C/svg%3E");
-  background-size: 50% 100%;
+  background-size: 70% 100%;
   background-repeat: repeat-x;
-  animation: footerWaveSway 14s ease-in-out infinite alternate-reverse;
+  animation: footerWaveSway 20s ease-in-out infinite alternate-reverse;
   pointer-events: none;
   z-index: 0;
 }
@@ -52,9 +53,9 @@ import { profile } from '@/shared/data/resume'
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 0;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 62px 0 28px;
   font-size: 11px;
+  line-height: 1.4;
   letter-spacing: 1px;
 }
 
@@ -86,13 +87,23 @@ import { profile } from '@/shared/data/resume'
 
 /* Mobile: ● Frontend Engineer · UI/UX Designer */
 @media (max-width: 767px) {
-  .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 36px 0;
+    font-size: 9px;
+    letter-spacing: 0.35px;
+  }
+
+  .footer-copy { white-space: nowrap; }
 
   .footer-role {
     display: flex;
     flex-wrap: nowrap;
     gap: 6px;
     align-items: center;
+    white-space: nowrap;
   }
 
   .status-dot  { order: 1; }

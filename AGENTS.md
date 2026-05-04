@@ -1,4 +1,4 @@
-# CLAUDE.md — cc-portfolio 專案規則
+# AGENTS.md — cc-portfolio 專案規則
 
 ## 專案概況
 
