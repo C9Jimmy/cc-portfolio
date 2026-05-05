@@ -116,6 +116,8 @@ const base = import.meta.env.BASE_URL
 .btn-outline { border: 1.5px solid rgba(255,255,255,0.3); color: #fff; }
 .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
 
+.btn:active { transform: translateY(2px); transition-duration: 0.05s; }
+
 .social-grid {
   display: flex;
   flex-wrap: wrap;
@@ -136,6 +138,7 @@ const base = import.meta.env.BASE_URL
   background: rgba(255, 214, 0, 0.12);
   transform: translateY(-1px);
 }
+.social-item:active { transform: translateY(0) scale(0.9); transition-duration: 0.05s; }
 
 @media (max-width: 767px) {
   .ct-plane { width: 150px; top: 10%; right: 18px; opacity: 0.08; }

@@ -73,7 +73,12 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
 }
 
 /* Carousel positions */
-.pos-center { transform: translate(-50%, -50%) translateX(0) scale(1) rotateY(0deg); z-index: 5; }
+.pos-center { transform: translate(-50%, -50%) translateX(0) scale(1) rotateY(0deg); z-index: 5; animation: cardBreathe 3s ease-in-out infinite; }
+
+@keyframes cardBreathe {
+  0%, 100% { box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  50%       { box-shadow: 0 20px 48px rgba(0,0,0,0.22); }
+}
 .pos-right1 { transform: translate(-50%, -50%) translateX(var(--carousel-offset)) scale(0.84) rotateY(-18deg); z-index: 4; opacity: 0.8; }
 .pos-left1  { transform: translate(-50%, -50%) translateX(calc(-1 * var(--carousel-offset))) scale(0.84) rotateY(18deg); z-index: 4; opacity: 0.8; }
 .pos-right2 { transform: translate(-50%, -50%) translateX(var(--carousel-offset)) scale(0.62) rotateY(-28deg); opacity: 0; pointer-events: none; z-index: 0; }
@@ -167,4 +172,5 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
   transition: background 0.2s, border-color 0.2s;
 }
 .cc-btn:hover { background: var(--yellow); border-color: var(--yellow); }
+.cc-btn:active { transform: scale(0.88); transition-duration: 0.05s; }
 </style>

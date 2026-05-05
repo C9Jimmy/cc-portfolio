@@ -40,7 +40,9 @@ defineProps<{ item: ExpItem }>()
   background: var(--yellow-tint);
   margin: 0 calc(-1 * var(--section-px));
   padding: 32px var(--section-px);
+  padding-left: calc(var(--section-px) - 3px);
   border-bottom-color: transparent;
+  border-left: 3px solid var(--yellow);
   border-radius: 8px;
 }
 

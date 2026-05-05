@@ -92,6 +92,12 @@ img { display: block; max-width: 100%; }
   border-radius: 3px;
   color: var(--black);
   letter-spacing: 0.2px;
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.2s;
+}
+
+.chip:not(.hi):hover {
+  transform: translateY(-2px);
+  border-color: var(--yellow);
 }
 
 .chip.hi {
