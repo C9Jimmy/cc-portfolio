@@ -109,6 +109,7 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
 .bg-app    { background: linear-gradient(145deg, #a85a20 0%, #3d1808 100%); }
 .bg-webapp { background: linear-gradient(145deg, #4a7a6a 0%, #0d1f18 100%); }
 .bg-seo    { background: linear-gradient(145deg, #506070 0%, #111827 100%); }
+.bg-python { background: linear-gradient(145deg, #4a6050 0%, #1a2518 100%); }
 
 .c-back {
   background: #fff;
