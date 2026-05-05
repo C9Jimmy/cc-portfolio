@@ -1,14 +1,21 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 const base = import.meta.env.BASE_URL
+const dotEl = ref<HTMLImageElement | null>(null)
+
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  if (!dotEl.value) return
+  dotEl.value.classList.remove('bounce')
+  void dotEl.value.offsetWidth
+  dotEl.value.classList.add('bounce')
 }
 </script>
 
 <template>
   <nav class="nav">
     <span class="nav-logo" @click="scrollToTop" role="button" tabindex="0">
-      <img :src="`${base}images/cc-icon-y.svg`" class="nav-logo-dot" alt="" aria-hidden="true" />
+      <img ref="dotEl" :src="`${base}images/cc-icon-y.svg`" class="nav-logo-dot" alt="" aria-hidden="true" />
       CHRIS CHENG
     </span>
   </nav>
@@ -58,6 +65,17 @@ function scrollToTop() {
 
 .nav-logo:active .nav-logo-dot {
   transform: scale(1.4);
+}
+
+.nav-logo-dot.bounce {
+  animation: dotBounce 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes dotBounce {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.5); }
+  65%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
 }
 
 </style>
