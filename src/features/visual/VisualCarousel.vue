@@ -65,7 +65,7 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
 
 .c-card {
   position: absolute;
-  width: 280px; height: 380px;
+  width: var(--carousel-card-w); height: 380px;
   top: 50%; left: 50%;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s;
@@ -74,10 +74,10 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
 
 /* Carousel positions */
 .pos-center { transform: translate(-50%, -50%) translateX(0) scale(1) rotateY(0deg); z-index: 5; }
-.pos-right1 { transform: translate(-50%, -50%) translateX(280px) scale(0.84) rotateY(-18deg); z-index: 4; opacity: 0.8; }
-.pos-left1  { transform: translate(-50%, -50%) translateX(-280px) scale(0.84) rotateY(18deg); z-index: 4; opacity: 0.8; }
-.pos-right2 { transform: translate(-50%, -50%) translateX(280px) scale(0.62) rotateY(-28deg); opacity: 0; pointer-events: none; z-index: 0; }
-.pos-left2  { transform: translate(-50%, -50%) translateX(-280px) scale(0.62) rotateY(28deg); opacity: 0; pointer-events: none; z-index: 0; }
+.pos-right1 { transform: translate(-50%, -50%) translateX(var(--carousel-offset)) scale(0.84) rotateY(-18deg); z-index: 4; opacity: 0.65; filter: blur(0.5px); }
+.pos-left1  { transform: translate(-50%, -50%) translateX(calc(-1 * var(--carousel-offset))) scale(0.84) rotateY(18deg); z-index: 4; opacity: 0.65; filter: blur(0.5px); }
+.pos-right2 { transform: translate(-50%, -50%) translateX(var(--carousel-offset)) scale(0.62) rotateY(-28deg); opacity: 0.25; pointer-events: none; z-index: 0; filter: blur(1.5px); }
+.pos-left2  { transform: translate(-50%, -50%) translateX(calc(-1 * var(--carousel-offset))) scale(0.62) rotateY(28deg); opacity: 0.25; pointer-events: none; z-index: 0; filter: blur(1.5px); }
 .pos-hidden { transform: translate(-50%, -50%) translateX(0) scale(0.5); opacity: 0; pointer-events: none; z-index: 0; }
 
 .c-card.flipped .c-card-inner { transform: rotateY(180deg); }
@@ -102,7 +102,8 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
 .c-front {
   background: var(--black);
   color: #fff;
-  padding: 28px 24px 30px;
+  padding: 24px;
+  justify-content: flex-end;
 }
 .bg-web    { background: linear-gradient(145deg, #3a6a8a 0%, #1e2b38 100%); }
 .bg-app    { background: linear-gradient(145deg, #a85a20 0%, #3d1808 100%); }
@@ -117,20 +118,22 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
 }
 
 .c-deco {
-  align-self: flex-end;
-  width: 52px;
-  height: 52px;
-  border: 2px solid rgba(255,255,255,0.55);
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border: 2px solid rgba(255,255,255,0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  color: rgba(255,255,255,0.8);
+  font-size: 18px;
+  color: rgba(255,255,255,0.5);
 }
-.c-type { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.72); margin-bottom: 7px; }
-.c-name { font-size: 21px; line-height: 1.15; font-weight: 800; color: #fff; }
-.c-year { font-size: 14px; line-height: 1.4; color: rgba(255,255,255,0.72); margin-top: 7px; }
+.c-type { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+.c-name { font-size: 18px; line-height: 1.2; font-weight: 800; color: #fff; letter-spacing: -0.3px; }
+.c-year { font-size: 10px; color: rgba(255,255,255,0.45); margin-top: 4px; }
 
 .c-back-type { font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gray2); margin-bottom: 18px; }
 .c-back-title { font-size: 21px; font-weight: 800; margin-bottom: 18px; }

@@ -3,7 +3,7 @@ import type { Profile, ExpItem, ProjectItem, ProjectCard, SkillGroup, VisualItem
 export const profile: Profile = {
   name: '程資閔',
   nameEn: 'Chris Cheng',
-  titles: ['前端工程師', '專案管理', 'UI/UX 設計師'],
+  titles: ['Frontend Engineer', '專案管理', 'UI/UX Designer'],
   location: '台中 · 遠端從優',
   email: 'ctzumiin@gmail.com',
   social: [
@@ -280,7 +280,7 @@ export const skillGroups: SkillGroup[] = [
   {
     label: '開發工具',
     chips: [
-      { name: 'AI 工具', highlight: true },
+      { name: 'AI 工具' },
       { name: 'Git' },
       { name: 'GitHub' },
       { name: 'VS Code' },
