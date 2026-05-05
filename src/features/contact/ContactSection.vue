@@ -57,19 +57,18 @@ const base = import.meta.env.BASE_URL
 
 .ct-plane {
   position: absolute;
-  right: 8%;
-  top: 34%;
-  transform: translateY(-50%);
-  width: 250px;
-  opacity: 0.06;
-  filter: brightness(0) invert(1) contrast(0.8);
+  right: max(10px, calc(50vw - 400px));
+  top: 12%;
+  width: 254px;
+  opacity: 0.1;
+  filter: invert(1) brightness(0.75);
   animation: planeDrift 8s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
 @keyframes planeDrift {
-  from { transform: translateY(-50%) translate(0, 0) rotate(-3deg); }
-  to   { transform: translateY(-50%) translate(18px, -14px) rotate(5deg); }
+  from { transform: translate(0, 0) rotate(-3deg); }
+  to   { transform: translate(18px, -14px) rotate(5deg); }
 }
 
 .ct-big {
@@ -139,7 +138,7 @@ const base = import.meta.env.BASE_URL
 }
 
 @media (max-width: 767px) {
-  .ct-plane { display: none; }
+  .ct-plane { width: 150px; top: 10%; right: 18px; opacity: 0.08; }
   .ct-big { letter-spacing: -2px; }
 }
 </style>
