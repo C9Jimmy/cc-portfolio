@@ -151,10 +151,12 @@ const floaters = [
 .hero-row { display: block; overflow: hidden; }
 
 .hero-inner {
-  display: block;
+  display: inline-block;
   transform: translateY(115%);
   animation: slideUp 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
+.hero-row:last-child { padding-bottom: 20px; }
 
 .hero-row:nth-child(1) .hero-inner { animation-delay: 0.08s; }
 .hero-row:nth-child(2) .hero-inner { animation-delay: 0.22s; }
@@ -168,8 +170,8 @@ const floaters = [
 .hero-hl::after {
   content: '';
   position: absolute;
-  left: 0; bottom: 4px;
-  height: 10px;
+  left: 0; bottom: 10px;
+  height: var(--hero-hl-h);
   width: 0;
   background: var(--yellow);
   z-index: -1;

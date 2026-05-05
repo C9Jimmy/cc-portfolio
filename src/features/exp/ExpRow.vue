@@ -6,8 +6,11 @@ defineProps<{ item: ExpItem }>()
 <template>
   <div class="exp-row">
     <div class="exp-year">
-      <span class="exp-date">{{ item.period }}</span>
-      <span class="exp-duration">{{ item.duration }}</span>
+      <div class="exp-date-stack">
+        <span>{{ item.period.split(' — ')[0] }}</span>
+        <span class="exp-date-sep">—</span>
+        <span>{{ item.period.split(' — ')[1] }}</span>
+      </div>
     </div>
     <div class="exp-main">
       <div class="exp-role">{{ item.role }}</div>
@@ -42,25 +45,23 @@ defineProps<{ item: ExpItem }>()
 }
 
 .exp-year {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
   padding-top: 4px;
 }
 
-.exp-date {
+.exp-date-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
   font-size: 11px;
   color: var(--gray2);
   letter-spacing: 0.5px;
-  line-height: 1.6;
+  line-height: 1.8;
   white-space: nowrap;
 }
 
-.exp-duration {
-  font-size: 11px;
+.exp-date-sep {
   color: var(--gray2);
-  letter-spacing: 0.5px;
-  line-height: 1.6;
+  line-height: 1.2;
 }
 
 .exp-role {
