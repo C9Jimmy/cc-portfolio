@@ -40,6 +40,12 @@ function scrollToTop() {
   gap: 8px;
   cursor: pointer;
   user-select: none;
+  color: var(--black);
+  transition: color 0.4s;
+}
+
+:global(.nav-on-dark) .nav-logo {
+  color: var(--white);
 }
 
 .nav-logo-dot {

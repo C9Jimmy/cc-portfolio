@@ -38,6 +38,15 @@ onMounted(() => {
       section.removeEventListener('mouseleave', onLeave)
     })
   })
+
+  const contactEl = document.querySelector('#contact')
+  if (contactEl) {
+    const obs = new IntersectionObserver(([entry]) => {
+      document.documentElement.classList.toggle('nav-on-dark', entry.isIntersecting)
+    }, { threshold: 0.1 })
+    obs.observe(contactEl)
+    cleanups.push(() => obs.disconnect())
+  }
 })
 
 onUnmounted(() => { cleanups.forEach(fn => fn()) })
