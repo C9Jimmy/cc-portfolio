@@ -15,6 +15,7 @@
   --ct-big-size:   clamp(40px, 6vw, 70px);
 
   --nav-h: 52px;
+  --nav-color: var(--black);
 
   /* Section spacing */
   --section-px: 40px;

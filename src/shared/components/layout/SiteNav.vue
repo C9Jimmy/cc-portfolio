@@ -47,12 +47,8 @@ function scrollToTop() {
   gap: 8px;
   cursor: pointer;
   user-select: none;
-  color: var(--black);
+  color: var(--nav-color);
   transition: color 0.4s;
-}
-
-:global(.nav-on-dark) .nav-logo {
-  color: var(--white);
 }
 
 .nav-logo-dot {

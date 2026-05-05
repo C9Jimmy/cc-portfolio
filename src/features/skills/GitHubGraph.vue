@@ -159,7 +159,7 @@ function tip(c: Contribution) {
 </template>
 
 <style scoped>
-.gh-graph { margin-bottom: 40px; }
+.gh-graph { margin-bottom: 60px; }
 
 .gh-meta {
   display: flex;
@@ -195,6 +195,17 @@ function tip(c: Contribution) {
   font-family: var(--font-sans);
 }
 
+.gh-svg rect {
+  transition: filter 0.12s, opacity 0.12s;
+  cursor: default;
+}
+
+.gh-svg rect:hover {
+  filter: brightness(1.25) saturate(1.2);
+  opacity: 0.85;
+  cursor: pointer;
+}
+
 .gh-skeleton {
   width: 100%;
   height: 118px;
@@ -220,5 +231,6 @@ function tip(c: Contribution) {
 @media (max-width: 767px) {
   .graph-desktop { display: none; }
   .graph-mobile  { display: block; }
+  .gh-graph { margin-bottom: 40px; }
 }
 </style>

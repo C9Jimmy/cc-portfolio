@@ -24,7 +24,7 @@ const base = import.meta.env.BASE_URL
         <a :href="`mailto:${profile.email}`" class="btn btn-light">
           <i class="fa-solid fa-paper-plane fa-xs"></i>寄送 Email
         </a>
-        <a :href="`${base}程資閔 Chris Cheng｜前端工程師.pdf`" download class="btn btn-outline">
+        <a :href="`${base}chris-cheng-resume.pdf`" download class="btn btn-outline">
           <i class="fa-solid fa-file-arrow-down fa-xs"></i>下載履歷
         </a>
       </div>
@@ -143,5 +143,9 @@ const base = import.meta.env.BASE_URL
 @media (max-width: 767px) {
   .ct-plane { width: 150px; top: 10%; right: 18px; opacity: 0.08; }
   .ct-big { letter-spacing: -2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-plane { animation: none; }
 }
 </style>

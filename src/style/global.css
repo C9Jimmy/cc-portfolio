@@ -4,6 +4,8 @@
 
 html { scroll-behavior: smooth; }
 
+html.nav-on-dark { --nav-color: var(--white); }
+
 body {
   font-family: var(--font-sans);
   background: var(--white);
@@ -92,11 +94,10 @@ img { display: block; max-width: 100%; }
   border-radius: 3px;
   color: var(--black);
   letter-spacing: 0.2px;
-  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .chip:not(.hi):hover {
-  transform: translateY(-2px);
   border-color: var(--yellow);
 }
 
@@ -104,6 +105,10 @@ img { display: block; max-width: 100%; }
   background: var(--yellow);
   border-color: var(--yellow);
   font-weight: 700;
+}
+
+.chip.hi:hover {
+  box-shadow: 0 2px 10px rgba(230, 169, 16, 0.3);
 }
 
 /* Tag */
@@ -125,4 +130,11 @@ img { display: block; max-width: 100%; }
 @media (max-width: 767px) {
   .section { min-height: 100svh; }
   .ghost { font-size: 50vw; bottom: calc(-0.1em - 10px); right: 0; left: auto; transform: none; transition: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Stop all infinite decorative animations; keep one-shot transitions */
+  .ghost,
+  .floater,
+  .floater > div { animation: none !important; transition: none !important; }
 }

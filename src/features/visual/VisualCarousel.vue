@@ -73,11 +73,14 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
 }
 
 /* Carousel positions */
-.pos-center { transform: translate(-50%, -50%) translateX(0) scale(1) rotateY(0deg); z-index: 5; animation: cardBreathe 3s ease-in-out infinite; }
+.pos-center { transform: translate(-50%, -50%) scale(1) rotateY(0deg); z-index: 5; animation: cardBreathe 8s ease-in-out infinite; }
 
 @keyframes cardBreathe {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.88; }
+  0%   { opacity: 1;    transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(0px)  rotateZ(0deg); }
+  25%  { opacity: 0.94; transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(-1px) rotateZ(0.3deg); }
+  50%  { opacity: 0.88; transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(-2px) rotateZ(0deg); }
+  75%  { opacity: 0.94; transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(-1px) rotateZ(-0.3deg); }
+  100% { opacity: 1;    transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(0px)  rotateZ(0deg); }
 }
 .pos-right1 { transform: translate(-50%, -50%) translateX(var(--carousel-offset)) scale(0.84) rotateY(-18deg); z-index: 4; opacity: 0.8; }
 .pos-left1  { transform: translate(-50%, -50%) translateX(calc(-1 * var(--carousel-offset))) scale(0.84) rotateY(18deg); z-index: 4; opacity: 0.8; }
@@ -173,4 +176,8 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
 }
 .cc-btn:hover { background: var(--yellow); border-color: var(--yellow); }
 .cc-btn:active { transform: scale(0.88); transition-duration: 0.05s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pos-center { animation: none; }
+}
 </style>

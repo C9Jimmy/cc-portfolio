@@ -92,7 +92,7 @@ Skills(cream) → Visual(white) → Contact(black)
 - 高亮文字用 `ct-yl`：`background: var(--yellow); color: var(--black); padding: 0 8px`
 - Email icon 顏色：`var(--yellow)`
 - 社群圖示：無框線（純 icon）
-- PDF 履歷路徑：`` `${base}程資閔 Chris Cheng｜前端工程師.pdf` ``
+- PDF 履歷路徑：`` `${base}chris-cheng-resume.pdf` ``
 
 ### Chip 樣式
 - 一般：白底，黑字，border-radius: 3px（方形）

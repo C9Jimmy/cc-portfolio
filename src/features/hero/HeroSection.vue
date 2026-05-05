@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import GhostNumber from '@/shared/components/ui/GhostNumber.vue'
 import { useHeroParallax } from './useHeroParallax'
 import { profile } from '@/shared/data/resume'
@@ -7,6 +7,11 @@ import { profile } from '@/shared/data/resume'
 const heroEl = ref<HTMLElement | null>(null)
 const { transforms } = useHeroParallax(heroEl)
 const base = import.meta.env.BASE_URL
+
+const nameParts = computed(() => {
+  const parts = profile.nameEn.split(' ')
+  return { first: parts[0] ?? profile.nameEn, last: parts[1] ?? '' }
+})
 
 const iconSrc = `${base}images/cc-icon-b.svg`
 
@@ -61,8 +66,8 @@ const floaters = [
     <div class="col">
       <div class="hero-kicker">PORTFOLIO · 2026</div>
       <div class="hero-type">
-        <span class="hero-row"><span class="hero-inner hero-hl">{{ profile.nameEn.split(' ')[0] }}</span></span>
-        <span class="hero-row"><span class="hero-inner hero-accent">{{ profile.nameEn.split(' ')[1] }}</span></span>
+        <span class="hero-row"><span class="hero-inner hero-hl">{{ nameParts.first }}</span></span>
+        <span class="hero-row"><span class="hero-inner hero-accent">{{ nameParts.last }}</span></span>
       </div>
       <div class="hero-sub">
         <span class="hero-name">{{ profile.name }}</span>
@@ -201,5 +206,10 @@ const floaters = [
   /* scale all floaters down and hide the noisiest ones */
   .floater { transform: scale(0.55); transform-origin: center center; }
   .f2, .f3, .f6, .f7, .f11 { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seal-ring { animation: none; }
+  .pigeon-seal:hover .seal-ring { animation: none; }
 }
 </style>
