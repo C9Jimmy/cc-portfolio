@@ -53,9 +53,3 @@ export interface SkillChip {
   highlight?: boolean
 }
 
-export interface VisualItem {
-  src: string
-  alt: string
-  backTitle?: string
-  backDesc?: string
-}

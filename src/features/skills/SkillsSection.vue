@@ -30,7 +30,6 @@ section {
   overflow-x: clip;
 }
 
-
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

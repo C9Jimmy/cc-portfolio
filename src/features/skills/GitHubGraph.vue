@@ -210,7 +210,7 @@ function tip(c: Contribution) {
   width: 100%;
   height: 118px;
   border-radius: 4px;
-  background: linear-gradient(90deg, #e8e3d9 25%, #ddd8cf 50%, #e8e3d9 75%);
+  background: linear-gradient(90deg, var(--cream) 25%, var(--border) 50%, var(--cream) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
 }

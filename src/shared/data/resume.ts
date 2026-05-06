@@ -1,4 +1,4 @@
-import type { Profile, ExpItem, ProjectItem, ProjectCard, SkillGroup, VisualItem } from '@/shared/types/resume'
+import type { Profile, ExpItem, ProjectItem, ProjectCard, SkillGroup } from '@/shared/types/resume'
 
 export const profile: Profile = {
   name: '程資閔',
@@ -305,10 +305,3 @@ export const skillGroups: SkillGroup[] = [
   },
 ]
 
-export const visuals: VisualItem[] = [
-  { src: '/cc-portfolio/images/visual-1.jpg', alt: '品牌視覺設計', backTitle: 'Brand Identity', backDesc: '企業品牌視覺規劃' },
-  { src: '/cc-portfolio/images/visual-2.jpg', alt: '印刷品設計', backTitle: 'Print Design', backDesc: '印刷物設計與印前規格' },
-  { src: '/cc-portfolio/images/visual-3.jpg', alt: 'UI 介面設計', backTitle: 'UI Design', backDesc: '醫療系統介面設計' },
-  { src: '/cc-portfolio/images/visual-4.jpg', alt: 'Trouver 網站', backTitle: 'Web Design', backDesc: 'WordPress 網站規劃上線' },
-  { src: '/cc-portfolio/images/visual-5.jpg', alt: '社群視覺', backTitle: 'Social Media', backDesc: '社群平台視覺設計' },
-]

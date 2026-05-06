@@ -78,11 +78,6 @@ section::before {
   color: #333;
 }
 
-.about-subhead {
-  font-weight: 700;
-  color: var(--black) !important;
-  margin-top: 8px;
-}
 
 @media (max-width: 767px) {
   .about-grid {

@@ -179,5 +179,6 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
 
 @media (prefers-reduced-motion: reduce) {
   .pos-center { animation: none; }
+  .c-card-inner { transition: none; }
 }
 </style>

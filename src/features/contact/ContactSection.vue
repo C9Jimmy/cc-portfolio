@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL
       </h2>
       <div class="ct-meta">
         <span>
-          <i class="fa-solid fa-envelope"></i>
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
           {{ profile.nameEn }} · <a :href="`mailto:${profile.email}`">{{ profile.email }}</a>
         </span>
       </div>

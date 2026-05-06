@@ -194,11 +194,11 @@ const floaters = [
   gap: 12px;
   flex-wrap: wrap;
   font-size: 14px;
-  color: #444;
+  color: var(--text-secondary);
 }
 
 .hero-name { font-weight: 600; }
-.hero-divider { color: #ddd; }
+.hero-divider { color: var(--border); }
 
 @media (max-width: 767px) {
   .pigeon-seal { display: none; }

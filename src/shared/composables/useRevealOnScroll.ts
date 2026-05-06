@@ -24,26 +24,3 @@ export function useRevealOnScroll(targetEl: Ref<HTMLElement | null>, threshold =
   return { isVisible }
 }
 
-export function useScrollSpy(sectionIds: string[]) {
-  const activeId = ref(sectionIds[0] ?? '')
-  let observer: IntersectionObserver | null = null
-
-  onMounted(() => {
-    observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) activeId.value = e.target.id
-        })
-      },
-      { threshold: 0.35 }
-    )
-    sectionIds.forEach(id => {
-      const el = document.getElementById(id)
-      if (el) observer?.observe(el)
-    })
-  })
-
-  onUnmounted(() => observer?.disconnect())
-
-  return { activeId }
-}
