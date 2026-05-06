@@ -9,7 +9,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@vueuse/core": "^14.2.1",
@@ -18,9 +21,16 @@
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@vitejs/plugin-vue": "^4.6.2",
+    "@vitest/coverage-v8": "^0.34.6",
+    "@vue/test-utils": "^2.4.10",
     "@vue/tsconfig": "^0.5.1",
+    "autoprefixer": "^10.5.0",
+    "happy-dom": "^20.9.0",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^3.4.19",
     "typescript": "~5.3.2",
     "vite": "^4.5.5",
+    "vitest": "^0.34.6",
     "vue-tsc": "^1.8.27"
   }
 }
