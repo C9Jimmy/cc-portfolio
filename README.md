@@ -28,6 +28,19 @@ It includes:
 - ✨ Font Awesome
 - 🔤 Google Fonts
 
+## Project Structure
+
+```
+src/
+├── features/        # Page sections (hero / about / exp / skills / visual / contact)
+├── shared/
+│   ├── components/  # Layout & UI components
+│   ├── composables/ # useRevealOnScroll
+│   ├── data/        # resume.ts — single source of truth for all content
+│   └── types/       # TypeScript type definitions
+└── style/           # CSS custom properties & global styles
+```
+
 ## Development
 
 ```bash
