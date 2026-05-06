@@ -37,6 +37,15 @@ Vue 3 + Vite 4 + TypeScript，部署於 GitHub Pages（base: `/cc-portfolio/`）
 |---|---|---|
 | @vueuse/core | 14.2.1 | composables 工具庫（useIntersectionObserver 等）|
 
+### 測試工具（devDependencies，不進 dist）
+
+| 套件 | 精確版本 | 備注 |
+|---|---|---|
+| vitest | 0.34.6 | **固定 0.34.x**，1.x/2.x 需要 Vite 5+ |
+| @vue/test-utils | 2.x | Vue 元件掛載 |
+| @vitest/coverage-v8 | 0.34.6 | 覆蓋率（需與 vitest 同版本）|
+| happy-dom | 20.x | 瀏覽器環境（jsdom 29 與 vitest 0.34 不相容）|
+
 ## 開發規則
 
 ### 資料修改
@@ -54,9 +63,16 @@ Vue 3 + Vite 4 + TypeScript，部署於 GitHub Pages（base: `/cc-portfolio/`）
 - 所有圖片放 `public/images/`
 - 路徑必須用 `` `${import.meta.env.BASE_URL}images/檔名` ``，不要寫死 `/cc-portfolio/`
 
+### 測試規則
+- 測試檔放在 feature 資料夾旁（e.g. `useCarousel.test.ts` 緊鄰 `useCarousel.ts`）
+- 測試設定在 `vitest.config.ts`（獨立，不改 `vite.config.ts`）
+- 覆蓋率目標 80%+；純 composable 優先測試（不依賴 DOM）
+- `npm run test:run` 單次執行；`npm run test:coverage` 輸出報告
+
 ### 不要動的東西
 - `vite.config.ts` 的 `base: '/cc-portfolio/'` — 這是 GitHub Pages 必要設定
 - `package.json` 的 Vite 版本（固定 v4，v5/v8 在 macOS 有 native binding 問題）
+- `package.json` 的 vitest 版本（固定 0.34.x，1.x/2.x 需要 Vite 5+）
 - `.github/workflows/deploy.yml` — CI/CD 設定
 
 ## CSS 設計約定
