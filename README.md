@@ -38,5 +38,3 @@ src/
 │   └── types/       # TypeScript 型別定義
 └── style/           # variables.css、global.css
 ```
-
-詳細架構說明見 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
