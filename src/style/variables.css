@@ -31,6 +31,18 @@
   /* Carousel */
   --carousel-card-w: 280px;
   --carousel-offset: 280px;
+
+  /* Project card gradients */
+  --card-web-start:    #3a6a8a;
+  --card-web-end:      #1e2b38;
+  --card-app-start:    #a85a20;
+  --card-app-end:      #3d1808;
+  --card-webapp-start: #4a7a6a;
+  --card-webapp-end:   #0d1f18;
+  --card-seo-start:    #506070;
+  --card-seo-end:      #111827;
+  --card-python-start: #4a6050;
+  --card-python-end:   #1a2518;
 }
 
 @media (max-width: 767px) {

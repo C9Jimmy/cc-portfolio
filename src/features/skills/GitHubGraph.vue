@@ -48,7 +48,7 @@ const total       = computed(() => data.value?.total['lastYear'] ?? 0)
       >@{{ GITHUB_USER }}</a>
     </div>
 
-    <div v-if="loading" class="gh-skeleton" />
+    <div v-if="loading" class="gh-skeleton" role="status" aria-label="Loading GitHub contributions" />
     <div v-else-if="failed" class="gh-error">
       <i class="fa-brands fa-github" aria-hidden="true"></i> 無法載入貢獻圖
     </div>

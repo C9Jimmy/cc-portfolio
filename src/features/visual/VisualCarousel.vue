@@ -130,11 +130,11 @@ function onCardKey(e: KeyboardEvent, idx: number) {
   padding: 24px;
   justify-content: flex-end;
 }
-.bg-web    { background: linear-gradient(145deg, #3a6a8a 0%, #1e2b38 100%); }
-.bg-app    { background: linear-gradient(145deg, #a85a20 0%, #3d1808 100%); }
-.bg-webapp { background: linear-gradient(145deg, #4a7a6a 0%, #0d1f18 100%); }
-.bg-seo    { background: linear-gradient(145deg, #506070 0%, #111827 100%); }
-.bg-python { background: linear-gradient(145deg, #4a6050 0%, #1a2518 100%); }
+.bg-web    { background: linear-gradient(145deg, var(--card-web-start)    0%, var(--card-web-end)    100%); }
+.bg-app    { background: linear-gradient(145deg, var(--card-app-start)    0%, var(--card-app-end)    100%); }
+.bg-webapp { background: linear-gradient(145deg, var(--card-webapp-start) 0%, var(--card-webapp-end) 100%); }
+.bg-seo    { background: linear-gradient(145deg, var(--card-seo-start)    0%, var(--card-seo-end)    100%); }
+.bg-python { background: linear-gradient(145deg, var(--card-python-start) 0%, var(--card-python-end) 100%); }
 
 .c-back {
   background: var(--white);

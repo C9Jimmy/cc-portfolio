@@ -47,7 +47,7 @@ function tip(c: Contribution) {
       :x="m.x" y="12"
       class="gh-month"
     >{{ m.text }}</text>
-    <g v-for="(week, wi) in weeks" :key="wi">
+    <g v-for="(week, wi) in weeks" :key="week[0]?.date ?? wi">
       <rect
         v-for="(day, di) in week"
         :key="day.date"

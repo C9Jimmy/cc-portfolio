@@ -25,12 +25,14 @@ export interface ExpItem {
   chips: string[]
 }
 
+export type CardBg = 'bg-web' | 'bg-app' | 'bg-webapp' | 'bg-seo' | 'bg-python'
+
 export interface ProjectCard {
   type: string
   name: string
   year: string
   icon: string
-  bg: string
+  bg: CardBg
   url?: string
   desc: string
   tags: string[]

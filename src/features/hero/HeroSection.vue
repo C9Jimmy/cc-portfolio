@@ -57,7 +57,7 @@ const floaters: Floater[] = [
 
     <!-- pigeon seal — top right, links to email -->
     <a :href="`mailto:${profile.email}`" class="pigeon-seal" aria-label="Send an email">
-      <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+      <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <path id="heroSealPath" d="M180 180 m-86 0 a86 86 0 1 1 172 0 a86 86 0 1 1 -172 0"/>
         </defs>
@@ -118,7 +118,7 @@ const floaters: Floater[] = [
 /* pigeon seal */
 .pigeon-seal {
   position: absolute;
-  top: 80px;
+  top: calc(var(--nav-h) + 28px);
   right: var(--nav-px);
   width: 250px;
   height: 250px;
