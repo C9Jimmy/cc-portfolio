@@ -22,6 +22,8 @@ onMounted(() => {
       const r = section.getBoundingClientRect()
       const mx = (e.clientX - r.left - r.width  / 2) / r.width
       const my = (e.clientY - r.top  - r.height / 2) / r.height
+      // Direct style mutation intentional: ghost is purely decorative and spans all sections;
+      // routing it through Vue reactivity would require a global store for a cosmetic effect.
       ghost.style.transition = 'transform 0.12s ease-out'
       ghost.style.transform = `perspective(900px) rotateX(${-my * 12}deg) rotateY(${mx * 18}deg)` // 900 = --ghost-perspective
     }

@@ -1,26 +1,20 @@
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue'
 import type { Ref } from 'vue'
+import { useIntersectionObserver } from '@vueuse/core'
 
 export function useRevealOnScroll(targetEl: Ref<HTMLElement | null>, threshold = 0.2) {
   const isVisible = ref(false)
-  let observer: IntersectionObserver | null = null
 
-  onMounted(() => {
-    if (!targetEl.value) return
-    observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true
-          observer?.unobserve(entry.target)
-        }
-      },
-      { threshold }
-    )
-    observer.observe(targetEl.value)
-  })
-
-  onUnmounted(() => observer?.disconnect())
+  const { stop } = useIntersectionObserver(
+    targetEl,
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        isVisible.value = true
+        stop()
+      }
+    },
+    { threshold }
+  )
 
   return { isVisible }
 }
-

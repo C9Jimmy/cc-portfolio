@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
 
+// Must stay in sync with each section's id="" attribute in App.vue
 const SECTIONS = ['hero', 'about', 'exp', 'skills', 'projects', 'contact']
 const activeIdx = ref(0)
 
