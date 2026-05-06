@@ -17,6 +17,13 @@ a { color: inherit; text-decoration: none; }
 
 img { display: block; max-width: 100%; }
 
+/* Remove mobile tap highlight on all interactive elements */
+a, button, [role="button"] { -webkit-tap-highlight-color: transparent; }
+
+/* Focus: hide outline on click/tap, show yellow ring on keyboard nav */
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; border-radius: 3px; }
+
 .col {
   width: min(820px, 100%);
   margin: 0 auto;
@@ -92,7 +99,7 @@ img { display: block; max-width: 100%; }
   padding: 5px 12px;
   border: 1px solid var(--border);
   border-radius: 3px;
-  color: var(--black);
+  color: var(--text-secondary);
   letter-spacing: 0.2px;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -114,7 +121,7 @@ img { display: block; max-width: 100%; }
 /* Tag */
 .tag {
   font-size: 10px;
-  background: #fff;
+  background: var(--white);
   border: 1px solid var(--yellow);
   padding: 2px 8px;
   border-radius: 100px;

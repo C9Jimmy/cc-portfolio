@@ -37,6 +37,7 @@ section::before {
   top: -120px;
   width: 200%;
   height: 208px;
+  /* fill=%23F8F6F1 = --cream; inline SVG can't reference CSS vars */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 208' preserveAspectRatio='none'%3E%3Cpath fill='%23F8F6F1' d='M0,88 C64,152 192,24 320,88 C448,152 576,24 720,88 C864,152 992,24 1120,88 C1248,152 1376,24 1440,88 L1440,208 L0,208 Z'/%3E%3C/svg%3E");
   background-size: 50% 100%;
   background-repeat: repeat-x;
@@ -75,7 +76,7 @@ section::before {
 .about-text p {
   font-size: 15px;
   line-height: 1.85;
-  color: #333;
+  color: var(--text-secondary);
 }
 
 

@@ -49,7 +49,7 @@ const base = import.meta.env.BASE_URL
 <style scoped>
 .ct-section {
   background: var(--black);
-  color: #fff;
+  color: var(--white);
   padding-bottom: 0;
   overflow-x: clip;
 }
@@ -111,10 +111,10 @@ const base = import.meta.env.BASE_URL
 }
 
 .btn-light { background: var(--yellow); color: var(--black); }
-.btn-light:hover { background: #fff; }
+.btn-light:hover { background: var(--white); }
 
-.btn-outline { border: 1.5px solid rgba(255,255,255,0.3); color: #fff; }
-.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+.btn-outline { border: 1.5px solid rgba(255,255,255,0.3); color: var(--white); }
+.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
 
 .btn:active { transform: translateY(2px); transition-duration: 0.05s; }
 

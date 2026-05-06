@@ -84,20 +84,23 @@ function onCardKey(e: KeyboardEvent, idx: number) {
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s;
   cursor: pointer;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
+.c-card:focus-visible { border-radius: 18px; }
 
 /* Carousel positions */
 .pos-center { transform: translate(-50%, -50%) scale(1) rotateY(0deg); z-index: 5; animation: cardBreathe 8s ease-in-out infinite; }
 
 @keyframes cardBreathe {
-  0%   { opacity: 1;    transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(0px)  rotateZ(0deg); }
-  25%  { opacity: 0.94; transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(-1px) rotateZ(0.3deg); }
-  50%  { opacity: 0.88; transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(-2px) rotateZ(0deg); }
-  75%  { opacity: 0.94; transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(-1px) rotateZ(-0.3deg); }
-  100% { opacity: 1;    transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(0px)  rotateZ(0deg); }
+  0%   { transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(0px)  rotateZ(0deg);    filter: brightness(1); }
+  25%  { transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(-1px) rotateZ(0.3deg);  filter: brightness(1.06); }
+  50%  { transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(-2px) rotateZ(0deg);    filter: brightness(1.12); }
+  75%  { transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(-1px) rotateZ(-0.3deg); filter: brightness(1.06); }
+  100% { transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(0px)  rotateZ(0deg);    filter: brightness(1); }
 }
-.pos-right1 { transform: translate(-50%, -50%) translateX(var(--carousel-offset)) scale(0.84) rotateY(-18deg); z-index: 4; opacity: 0.8; }
-.pos-left1  { transform: translate(-50%, -50%) translateX(calc(-1 * var(--carousel-offset))) scale(0.84) rotateY(18deg); z-index: 4; opacity: 0.8; }
+.pos-right1 { transform: translate(-50%, -50%) translateX(var(--carousel-offset)) scale(0.84) rotateY(-18deg); z-index: 4; }
+.pos-left1  { transform: translate(-50%, -50%) translateX(calc(-1 * var(--carousel-offset))) scale(0.84) rotateY(18deg); z-index: 4; }
 .pos-right2 { transform: translate(-50%, -50%) translateX(var(--carousel-offset)) scale(0.62) rotateY(-28deg); opacity: 0; pointer-events: none; z-index: 0; }
 .pos-left2  { transform: translate(-50%, -50%) translateX(calc(-1 * var(--carousel-offset))) scale(0.62) rotateY(28deg); opacity: 0; pointer-events: none; z-index: 0; }
 .pos-hidden { transform: translate(-50%, -50%) translateX(0) scale(0.5); opacity: 0; pointer-events: none; z-index: 0; }
@@ -123,7 +126,7 @@ function onCardKey(e: KeyboardEvent, idx: number) {
 
 .c-front {
   background: var(--black);
-  color: #fff;
+  color: var(--white);
   padding: 24px;
   justify-content: flex-end;
 }
@@ -134,7 +137,7 @@ function onCardKey(e: KeyboardEvent, idx: number) {
 .bg-python { background: linear-gradient(145deg, #4a6050 0%, #1a2518 100%); }
 
 .c-back {
-  background: #fff;
+  background: var(--white);
   color: var(--black);
   transform: rotateY(180deg);
   border: 1px solid var(--border);
@@ -155,7 +158,7 @@ function onCardKey(e: KeyboardEvent, idx: number) {
   color: rgba(255,255,255,0.5);
 }
 .c-type { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
-.c-name { font-size: 18px; line-height: 1.2; font-weight: 800; color: #fff; letter-spacing: -0.3px; }
+.c-name { font-size: 18px; line-height: 1.2; font-weight: 800; color: var(--white); letter-spacing: -0.3px; }
 .c-year { font-size: 10px; color: rgba(255,255,255,0.45); margin-top: 4px; }
 
 .c-back-type { font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gray2); margin-bottom: 18px; }

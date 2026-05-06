@@ -6,7 +6,8 @@
   --gray:   #888888;
   --gray2:  #bbbbbb;
   --border: #e5e5e5;
-  --text-secondary: #444444;
+  --text-secondary: #333333;
+  --status-green: #22c55e;
   --yellow-tint: #FFFDE7;
 
   --font-sans: 'Plus Jakarta Sans', 'Noto Sans TC', 'Helvetica Neue', 'PingFang TC', sans-serif;
@@ -16,6 +17,7 @@
   --ct-big-size:   clamp(40px, 6vw, 70px);
 
   --nav-h: 52px;
+  --nav-px: 60px;
   --ghost-perspective: 900px;
   --nav-color: var(--black);
 
@@ -35,6 +37,7 @@
   :root {
     --section-px: 24px;
     --section-py: 80px;
+    --nav-px: 24px;
     --carousel-card-w: 260px;
     --carousel-offset: 190px;
   }

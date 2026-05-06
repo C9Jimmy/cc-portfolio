@@ -85,7 +85,7 @@ const period = computed(() => props.item.period.split(' — '))
 
 .exp-desc {
   font-size: 13px;
-  color: #444;
+  color: var(--text-secondary);
   line-height: 1.75;
   margin-bottom: 16px;
   max-width: 560px;

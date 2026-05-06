@@ -24,14 +24,6 @@ export interface ExpItem {
   chips: string[]
 }
 
-export interface ProjectItem {
-  idx: string
-  title: string
-  meta: string
-  url?: string
-  featured?: boolean
-}
-
 export interface ProjectCard {
   type: string
   name: string

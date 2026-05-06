@@ -1,4 +1,4 @@
-import type { Profile, ExpItem, ProjectItem, ProjectCard, SkillGroup } from '@/shared/types/resume'
+import type { Profile, ExpItem, ProjectCard, SkillGroup } from '@/shared/types/resume'
 
 export const profile: Profile = {
   name: '程資閔',
@@ -51,26 +51,6 @@ export const experiences: ExpItem[] = [
     industry: '網際網路',
     description: '使用 Bootstrap、HTML5、CSS3 實作響應式網頁（RWD），負責六家企業官網前端切版；執行 Banner 設計與網頁資料維護更新；協助行銷部門規劃社群視覺與活動企劃。',
     chips: ['Bootstrap', 'HTML5', 'CSS3', 'RWD', 'Banner 設計'],
-  },
-]
-
-export const projects: ProjectItem[] = [
-  {
-    idx: '01',
-    title: '醫療資訊系統介面設計',
-    meta: 'UI/UX · Vue.js · 2019–2021 · 健康聯網',
-    featured: true,
-  },
-  {
-    idx: '02',
-    title: '品牌視覺 × 印刷設計全案',
-    meta: '視覺設計 · AI 工具 · 2021–2026 · 紙研所',
-  },
-  {
-    idx: '03',
-    title: '企業官網 RWD 切版',
-    meta: 'HTML5 · CSS3 · 前端 · 2016–2018',
-    url: 'https://www.appseoweb.com/',
   },
 ]
 

@@ -70,15 +70,10 @@ import { profile } from '@/shared/data/resume'
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #22c55e;
+  background: var(--status-green);
   flex-shrink: 0;
   order: 2;
   animation: blink 2s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.3; }
 }
 
 .role-primary  { order: 1; }

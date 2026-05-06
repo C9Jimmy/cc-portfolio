@@ -7,15 +7,9 @@ import VisualCarousel from './VisualCarousel.vue'
 <template>
   <section class="section" id="projects">
     <GhostNumber number="05" />
-    <div class="col visual-col">
+    <div class="col">
       <SectionTitle text="Projects" />
       <VisualCarousel />
     </div>
   </section>
 </template>
-
-<style scoped>
-.visual-col {
-  width: min(820px, 100%);
-}
-</style>

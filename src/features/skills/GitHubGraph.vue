@@ -19,7 +19,7 @@ const GAP  = 3
 const STEP = CELL + GAP   // 14px per cell
 const TOP  = 20            // space for month labels
 
-// Level 0-4 mapped to cream → yellow
+// Level 0-4 mapped to cream → yellow; SVG fill can't use CSS vars, so #f5c518 = --yellow
 const COLORS = ['#ddd8cf', '#f5c51838', '#f5c51870', '#f5c518b0', '#f5c518'] as const
 
 const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
