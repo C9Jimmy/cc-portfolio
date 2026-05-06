@@ -11,7 +11,7 @@ import { experiences } from '@/shared/data/resume'
     <div class="col">
       <SectionTitle text="Experience" />
       <div class="exp-list">
-        <ExpRow v-for="item in experiences" :key="`${item.company}-${item.period}`" :item="item" />
+        <ExpRow v-for="item in experiences" :key="`${item.company}-${item.startDate}`" :item="item" />
       </div>
     </div>
   </section>

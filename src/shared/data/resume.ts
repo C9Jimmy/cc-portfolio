@@ -17,7 +17,8 @@ export const profile: Profile = {
 
 export const experiences: ExpItem[] = [
   {
-    period: '2021 / 07 — 2026 / 03',
+    startDate: '2021 / 07',
+    endDate:   '2026 / 03',
     duration: '4 年 9 個月',
     role: '專案管理',
     company: '紙研所有限公司',
@@ -26,7 +27,8 @@ export const experiences: ExpItem[] = [
     chips: ['專案管理', 'WordPress', 'SEO', 'Codex', 'Claude Code'],
   },
   {
-    period: '2018 / 10 — 2021 / 06',
+    startDate: '2018 / 10',
+    endDate:   '2021 / 06',
     duration: '2 年 9 個月',
     role: 'UI/UX 設計師',
     company: '健康聯網資訊服務股份有限公司',
@@ -35,7 +37,8 @@ export const experiences: ExpItem[] = [
     chips: ['Vue.js', 'Git / GitLab', 'Jira', 'Sketch', 'Adobe XD', 'Zeplin', 'VS Code'],
   },
   {
-    period: '2017 / 08 — 2018 / 07',
+    startDate: '2017 / 08',
+    endDate:   '2018 / 07',
     duration: '1 年',
     role: '網頁設計師',
     company: '詩木林數位科技 S.M.L. DIGITAL.',
@@ -44,7 +47,8 @@ export const experiences: ExpItem[] = [
     chips: ['Web Wireframe', 'Mobile Wireframe', 'APP 架構規劃', '專案管理'],
   },
   {
-    period: '2016 / 05 — 2017 / 03',
+    startDate: '2016 / 05',
+    endDate:   '2017 / 03',
     duration: '約 1 年',
     role: '網頁設計師',
     company: '益林事業有限公司',

@@ -3,6 +3,9 @@ import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
 
 // Must stay in sync with each section's id="" attribute in App.vue
 const SECTIONS = ['hero', 'about', 'exp', 'skills', 'projects', 'contact']
+const SECTION_LABELS: Record<string, string> = {
+  hero: '首頁', about: '關於', exp: '經歷', skills: '技能', projects: '作品', contact: '聯絡',
+}
 const activeIdx = ref(0)
 
 const isOnDark = computed(() => activeIdx.value === SECTIONS.length - 1)
@@ -47,7 +50,7 @@ watch(isOnDark, dark => {
       class="prog-dot"
       :class="{ active: i === activeIdx }"
       @click="scrollTo(id)"
-      :aria-label="`前往第 ${i + 1} 區塊`"
+      :aria-label="`前往${SECTION_LABELS[id]}區塊`"
     />
   </nav>
 </template>

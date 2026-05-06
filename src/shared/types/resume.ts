@@ -15,7 +15,8 @@ export interface SocialLink {
 }
 
 export interface ExpItem {
-  period: string
+  startDate: string
+  endDate: string
   duration: string
   role: string
   company: string

@@ -3,7 +3,7 @@ defineProps<{ number: string; light?: boolean }>()
 </script>
 
 <template>
-  <div class="ghost" :class="{ 'ghost--light': light }">{{ number }}</div>
+  <div class="ghost" :class="{ 'ghost--light': light }" aria-hidden="true">{{ number }}</div>
 </template>
 
 <style scoped>

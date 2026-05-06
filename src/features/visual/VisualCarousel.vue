@@ -33,7 +33,7 @@ function onCardKey(e: KeyboardEvent, idx: number) {
       >
         <div class="c-card-inner">
           <div class="c-face c-front" :class="card.bg">
-            <div class="c-deco"><i :class="`fa-solid ${card.icon}`"></i></div>
+            <div class="c-deco"><i :class="`fa-solid ${card.icon}`" aria-hidden="true"></i></div>
             <div class="c-front-copy">
               <div class="c-type">{{ card.type }}</div>
               <div class="c-name">{{ card.name }}</div>
@@ -48,7 +48,7 @@ function onCardKey(e: KeyboardEvent, idx: number) {
               <span v-for="t in card.tags" :key="t" class="c-back-tag">{{ t }}</span>
             </div>
             <a v-if="card.url" :href="card.url" target="_blank" rel="noopener noreferrer" class="c-back-link" @click.stop>
-              Open Project <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i>
+              Open Project <i class="fa-solid fa-arrow-up-right-from-square fa-xs" aria-hidden="true"></i>
             </a>
             <div class="c-back-hint">close</div>
           </div>
@@ -58,10 +58,10 @@ function onCardKey(e: KeyboardEvent, idx: number) {
 
     <div class="carousel-controls">
       <button class="cc-btn" @click="prev" aria-label="上一張">
-        <i class="fa-solid fa-arrow-left fa-xs"></i>
+        <i class="fa-solid fa-arrow-left fa-xs" aria-hidden="true"></i>
       </button>
       <button class="cc-btn" @click="next" aria-label="下一張">
-        <i class="fa-solid fa-arrow-right fa-xs"></i>
+        <i class="fa-solid fa-arrow-right fa-xs" aria-hidden="true"></i>
       </button>
     </div>
   </div>

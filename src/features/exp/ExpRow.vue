@@ -1,23 +1,21 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import type { ExpItem } from '@/shared/types/resume'
-const props = defineProps<{ item: ExpItem }>()
-const period = computed(() => props.item.period.split(' — '))
+defineProps<{ item: ExpItem }>()
 </script>
 
 <template>
   <div class="exp-row">
     <div class="exp-year">
       <div class="exp-date-stack">
-        <span>{{ period[0] }}</span>
+        <span>{{ item.startDate }}</span>
         <span class="exp-date-sep">—</span>
-        <span>{{ period[1] }}</span>
+        <span>{{ item.endDate }}</span>
       </div>
     </div>
     <div class="exp-main">
       <div class="exp-role">{{ item.role }}</div>
       <div class="exp-co">{{ item.company }} <span class="tag">{{ item.industry }}</span></div>
-      <span class="exp-date-mobile">{{ item.period }}</span>
+      <span class="exp-date-mobile">{{ item.startDate }} — {{ item.endDate }}</span>
       <p class="exp-desc">{{ item.description }}</p>
       <div class="tag-row">
         <span v-for="chip in item.chips" :key="chip" class="chip">{{ chip }}</span>

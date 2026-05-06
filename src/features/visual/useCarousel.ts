@@ -19,6 +19,7 @@ export function useCarousel(total: number) {
 
   function next() { centerIdx.value = (centerIdx.value + 1) % itemCount; flippedIdx.value = null }
   function prev() { centerIdx.value = (centerIdx.value - 1 + itemCount) % itemCount; flippedIdx.value = null }
+  // internal: navigate to index, reset flip state
   function goTo(idx: number) { centerIdx.value = ((idx % itemCount) + itemCount) % itemCount; flippedIdx.value = null }
 
   function clickCard(idx: number) {

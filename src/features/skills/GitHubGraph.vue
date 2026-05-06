@@ -1,28 +1,10 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { profile } from '@/shared/data/resume'
-
-interface Contribution {
-  date: string
-  count: number
-  level: 0 | 1 | 2 | 3 | 4
-}
-
-interface ContribResponse {
-  total: Record<string, number>
-  contributions: Contribution[]
-}
+import ContribSvg from './ContribSvg.vue'
+import type { ContribResponse, Contribution } from './github.types'
 
 const GITHUB_USER = profile.social.find(s => s.platform === 'github')?.url.split('/').pop() ?? ''
-const CELL = 11
-const GAP  = 3
-const STEP = CELL + GAP   // 14px per cell
-const TOP  = 20            // space for month labels
-
-// Level 0-4 mapped to cream → yellow; SVG fill can't use CSS vars, so #f5c518 = --yellow
-const COLORS = ['#ddd8cf', '#f5c51838', '#f5c51870', '#f5c518b0', '#f5c518'] as const
-
-const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
 const data    = ref<ContribResponse | null>(null)
 const loading = ref(true)
@@ -42,46 +24,20 @@ onMounted(async () => {
 
 function chunkByWeek(days: Contribution[]) {
   const weeks: Contribution[][] = []
-  for (let i = 0; i < days.length; i += 7) {
-    weeks.push(days.slice(i, i + 7))
-  }
+  for (let i = 0; i < days.length; i += 7) weeks.push(days.slice(i, i + 7))
   return weeks
 }
 
-const allWeeks     = computed(() => data.value ? chunkByWeek(data.value.contributions) : [])
-const desktopWeeks = computed(() => allWeeks.value)
-const mobileWeeks  = computed(() => allWeeks.value.slice(-20))
-
-const total = computed(() => data.value?.total['lastYear'] ?? 0)
-const svgH     = 7 * STEP + TOP
-
-function svgW(weeks: Contribution[][]) { return weeks.length * STEP }
-
-function monthLabels(weeks: Contribution[][]) {
-  const labels: { text: string; x: number }[] = []
-  let prev = ''
-  weeks.forEach((week, i) => {
-    const m = week[0]?.date.slice(5, 7) ?? ''
-    if (m && m !== prev) {
-      labels.push({ text: MONTH_NAMES[parseInt(m) - 1], x: i * STEP })
-      prev = m
-    }
-  })
-  return labels
-}
-
-function color(level: 0 | 1 | 2 | 3 | 4) { return COLORS[level] }
-
-function tip(c: Contribution) {
-  return `${c.date}：${c.count} contribution${c.count !== 1 ? 's' : ''}`
-}
+const allWeeks    = computed(() => data.value ? chunkByWeek(data.value.contributions) : [])
+const mobileWeeks = computed(() => allWeeks.value.slice(-20))
+const total       = computed(() => data.value?.total['lastYear'] ?? 0)
 </script>
 
 <template>
   <div class="gh-graph">
     <div class="gh-meta">
       <span class="gh-total" v-if="!loading && !failed">
-        <i class="fa-brands fa-github"></i>
+        <i class="fa-brands fa-github" aria-hidden="true"></i>
         {{ total.toLocaleString() }} contributions in the last year
       </span>
       <a
@@ -94,66 +50,15 @@ function tip(c: Contribution) {
 
     <div v-if="loading" class="gh-skeleton" />
     <div v-else-if="failed" class="gh-error">
-      <i class="fa-brands fa-github"></i> 無法載入貢獻圖
+      <i class="fa-brands fa-github" aria-hidden="true"></i> 無法載入貢獻圖
     </div>
 
     <template v-else>
-      <!-- Desktop: full 52 weeks -->
       <div class="gh-wrap graph-desktop">
-        <svg
-          class="gh-svg"
-          width="100%"
-          :height="svgH"
-          :viewBox="`0 0 ${svgW(desktopWeeks)} ${svgH}`"
-          preserveAspectRatio="xMinYMin meet"
-        >
-          <text
-            v-for="m in monthLabels(desktopWeeks)"
-            :key="m.x"
-            :x="m.x" y="12"
-            class="gh-month"
-          >{{ m.text }}</text>
-          <g v-for="(week, wi) in desktopWeeks" :key="wi">
-            <rect
-              v-for="(day, di) in week"
-              :key="day.date"
-              :x="wi * STEP"
-              :y="TOP + di * STEP"
-              :width="CELL" :height="CELL"
-              rx="2"
-              :fill="color(day.level)"
-            ><title>{{ tip(day) }}</title></rect>
-          </g>
-        </svg>
+        <ContribSvg :weeks="allWeeks" />
       </div>
-
-      <!-- Mobile: last 20 weeks -->
       <div class="gh-wrap graph-mobile">
-        <svg
-          class="gh-svg"
-          width="100%"
-          :height="svgH"
-          :viewBox="`0 0 ${svgW(mobileWeeks)} ${svgH}`"
-          preserveAspectRatio="xMinYMin meet"
-        >
-          <text
-            v-for="m in monthLabels(mobileWeeks)"
-            :key="m.x"
-            :x="m.x" y="12"
-            class="gh-month"
-          >{{ m.text }}</text>
-          <g v-for="(week, wi) in mobileWeeks" :key="wi">
-            <rect
-              v-for="(day, di) in week"
-              :key="day.date"
-              :x="wi * STEP"
-              :y="TOP + di * STEP"
-              :width="CELL" :height="CELL"
-              rx="2"
-              :fill="color(day.level)"
-            ><title>{{ tip(day) }}</title></rect>
-          </g>
-        </svg>
+        <ContribSvg :weeks="mobileWeeks" />
       </div>
     </template>
   </div>
@@ -188,24 +93,6 @@ function tip(c: Contribution) {
 .gh-link:hover { color: var(--black); }
 
 .gh-wrap { overflow-x: auto; }
-.gh-svg  { display: block; height: auto; }
-
-.gh-month {
-  font-size: 9px;
-  fill: var(--gray2);
-  font-family: var(--font-sans);
-}
-
-.gh-svg rect {
-  transition: filter 0.12s, opacity 0.12s;
-  cursor: default;
-}
-
-.gh-svg rect:hover {
-  filter: brightness(1.25) saturate(1.2);
-  opacity: 0.85;
-  cursor: pointer;
-}
 
 .gh-skeleton {
   width: 100%;
