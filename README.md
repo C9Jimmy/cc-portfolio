@@ -1,40 +1,45 @@
-# Chris Cheng — Portfolio
+# 🟡 Chris Cheng Portfolio
 
-程資閔（Chris Cheng）的個人 Portfolio。
+Personal portfolio website for Chris Cheng, a frontend engineer and UI/UX designer.  
+Built with Vue 3 + TypeScript as an interactive single-page experience.
 
-🔗 [cc-portfolio](https://c9jimmy.github.io/cc-portfolio/)
+## Live Demo
 
-## 技術棧
+[View Portfolio](https://c9jimmy.github.io/cc-portfolio/)
 
-| 項目 | 套件 | 版本 |
-|---|---|---|
-| 框架 | vue | ^3.5.32 |
-| 建置工具 | vite | ^4.5.5 |
-| 型別系統 | typescript | ~5.3.2 |
-| Composables | @vueuse/core | ^14.2.1 |
-| 樣式 | Scoped CSS + CSS Custom Properties | — |
-| 圖示 | Font Awesome 6 CDN | — |
-| 部署 | GitHub Pages | — |
+## Overview
 
-## 開發
+This site is built as a public-facing resume and portfolio for sharing professional background, frontend skills, product experience, and design sensibility.
+
+It includes:
+
+- 🧑‍💻 Animated hero section with parallax floaters
+- 🗂️ Work experience timeline
+- 🧩 Frontend, design, and collaboration skills with GitHub contribution graph
+- 🃏 Interactive 3D flip card carousel for app and web projects
+- ✉️ Contact section with social links
+- 📄 Downloadable resume PDF
+
+## Tech Stack
+
+- ⚡ Vue 3 + Vite
+- 🔷 TypeScript
+- 🎨 CSS Custom Properties
+- ✨ Font Awesome
+- 🔤 Google Fonts
+
+## Development
 
 ```bash
 npm install
-npm run dev           # 本地開發伺服器
-npm run build         # 型別檢查 + 生產 build
-npm run test:run      # 執行測試
-npm run test:coverage # 測試覆蓋率報告
+npm run dev
+npm run build
 ```
 
-## 專案結構
+## Deployment
 
-```
-src/
-├── features/        # 各頁面區塊（hero / about / exp / skills / visual / contact）
-├── shared/
-│   ├── components/  # 共用元件（SiteNav、PageProgress、GhostNumber 等）
-│   ├── composables/ # useRevealOnScroll
-│   ├── data/        # resume.ts — 所有履歷內容
-│   └── types/       # TypeScript 型別定義
-└── style/           # variables.css、global.css
-```
+This site is deployed with GitHub Actions to GitHub Pages.
+
+## License
+
+This project is licensed under the MIT License.
