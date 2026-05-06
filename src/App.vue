@@ -23,7 +23,7 @@ onMounted(() => {
       const mx = (e.clientX - r.left - r.width  / 2) / r.width
       const my = (e.clientY - r.top  - r.height / 2) / r.height
       ghost.style.transition = 'transform 0.12s ease-out'
-      ghost.style.transform = `perspective(900px) rotateX(${-my * 12}deg) rotateY(${mx * 18}deg)`
+      ghost.style.transform = `perspective(900px) rotateX(${-my * 12}deg) rotateY(${mx * 18}deg)` // 900 = --ghost-perspective
     }
 
     const onLeave = () => {
@@ -39,14 +39,6 @@ onMounted(() => {
     })
   })
 
-  const contactEl = document.querySelector('#contact')
-  if (contactEl) {
-    const obs = new IntersectionObserver(([entry]) => {
-      document.documentElement.classList.toggle('nav-on-dark', entry.isIntersecting)
-    }, { threshold: 0.1 })
-    obs.observe(contactEl)
-    cleanups.push(() => obs.disconnect())
-  }
 })
 
 onUnmounted(() => { cleanups.forEach(fn => fn()) })

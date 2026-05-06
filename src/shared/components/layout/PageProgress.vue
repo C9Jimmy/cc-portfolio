@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
 
 const SECTIONS = ['hero', 'about', 'exp', 'skills', 'projects', 'contact']
 const activeIdx = ref(0)
@@ -32,6 +32,10 @@ onMounted(() => {
 })
 
 onUnmounted(() => obs?.disconnect())
+
+watch(isOnDark, dark => {
+  document.documentElement.classList.toggle('nav-on-dark', dark)
+}, { immediate: true })
 </script>
 
 <template>

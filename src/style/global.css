@@ -52,7 +52,7 @@ img { display: block; max-width: 100%; }
   left: auto;
   bottom: -0.15em;
   z-index: 0;
-  transform: perspective(900px) rotateX(0deg) rotateY(0deg);
+  transform: perspective(var(--ghost-perspective)) rotateX(0deg) rotateY(0deg);
   transform-origin: center bottom;
   transition: transform 2.2s cubic-bezier(0.23, 1, 0.32, 1);
   will-change: transform;

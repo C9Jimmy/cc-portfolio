@@ -16,6 +16,7 @@
   --ct-big-size:   clamp(40px, 6vw, 70px);
 
   --nav-h: 52px;
+  --ghost-perspective: 900px;
   --nav-color: var(--black);
 
   /* Section spacing */

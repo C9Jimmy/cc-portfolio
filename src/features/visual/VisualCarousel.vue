@@ -4,10 +4,19 @@ import { useCarousel } from './useCarousel'
 
 const cards = projectCards
 const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.length)
+
+const VISIBLE_POSITIONS = new Set(['pos-center', 'pos-left1', 'pos-right1'])
+
+function onCardKey(e: KeyboardEvent, idx: number) {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault()
+    clickCard(idx)
+  }
+}
 </script>
 
 <template>
-  <div class="carousel-wrap">
+  <div class="carousel-wrap" role="region" aria-label="Projects">
     <div class="carousel-stage">
       <div
         v-for="(card, cardIndex) in cards"
@@ -15,7 +24,12 @@ const { flippedIdx, positionFor, next, prev, clickCard } = useCarousel(cards.len
         class="c-card"
         :class="[positionFor(cardIndex), { flipped: flippedIdx === cardIndex }]"
         :data-idx="cardIndex"
+        role="button"
+        :tabindex="VISIBLE_POSITIONS.has(positionFor(cardIndex)) ? 0 : -1"
+        :aria-label="card.name"
+        :aria-pressed="flippedIdx === cardIndex"
         @click="clickCard(cardIndex)"
+        @keydown="onCardKey($event, cardIndex)"
       >
         <div class="c-card-inner">
           <div class="c-face c-front" :class="card.bg">

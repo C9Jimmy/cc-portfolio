@@ -1,7 +1,7 @@
 export interface Profile {
   name: string
   nameEn: string
-  titles: string[]
+  titles: [string, string, string]
   location: string
   email: string
   social: SocialLink[]

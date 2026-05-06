@@ -14,10 +14,10 @@ function scrollToTop() {
 
 <template>
   <nav class="nav">
-    <span class="nav-logo" @click="scrollToTop" role="button" tabindex="0">
+    <button class="nav-logo" @click="scrollToTop" aria-label="Back to top">
       <img ref="dotEl" :src="`${base}images/cc-icon-y.svg`" class="nav-logo-dot" alt="" aria-hidden="true" />
       CHRIS CHENG
-    </span>
+    </button>
   </nav>
 </template>
 
@@ -38,6 +38,11 @@ function scrollToTop() {
 }
 
 .nav-logo {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: inherit;
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 3px;

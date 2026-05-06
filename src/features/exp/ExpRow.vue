@@ -1,15 +1,17 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { ExpItem } from '@/shared/types/resume'
-defineProps<{ item: ExpItem }>()
+const props = defineProps<{ item: ExpItem }>()
+const period = computed(() => props.item.period.split(' — '))
 </script>
 
 <template>
   <div class="exp-row">
     <div class="exp-year">
       <div class="exp-date-stack">
-        <span>{{ item.period.split(' — ')[0] }}</span>
+        <span>{{ period[0] }}</span>
         <span class="exp-date-sep">—</span>
-        <span>{{ item.period.split(' — ')[1] }}</span>
+        <span>{{ period[1] }}</span>
       </div>
     </div>
     <div class="exp-main">

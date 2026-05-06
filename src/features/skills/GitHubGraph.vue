@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { profile } from '@/shared/data/resume'
 
 interface Contribution {
   date: string
@@ -12,7 +13,7 @@ interface ContribResponse {
   contributions: Contribution[]
 }
 
-const GITHUB_USER = 'C9Jimmy'
+const GITHUB_USER = profile.social.find(s => s.platform === 'github')?.url.split('/').pop() ?? ''
 const CELL = 11
 const GAP  = 3
 const STEP = CELL + GAP   // 14px per cell
@@ -114,10 +115,10 @@ function tip(c: Contribution) {
           >{{ m.text }}</text>
           <g v-for="(week, wi) in desktopWeeks" :key="wi">
             <rect
-              v-for="day in week"
+              v-for="(day, di) in week"
               :key="day.date"
               :x="wi * STEP"
-              :y="TOP + week.indexOf(day) * STEP"
+              :y="TOP + di * STEP"
               :width="CELL" :height="CELL"
               rx="2"
               :fill="color(day.level)"
@@ -143,10 +144,10 @@ function tip(c: Contribution) {
           >{{ m.text }}</text>
           <g v-for="(week, wi) in mobileWeeks" :key="wi">
             <rect
-              v-for="day in week"
+              v-for="(day, di) in week"
               :key="day.date"
               :x="wi * STEP"
-              :y="TOP + week.indexOf(day) * STEP"
+              :y="TOP + di * STEP"
               :width="CELL" :height="CELL"
               rx="2"
               :fill="color(day.level)"
