@@ -22,11 +22,15 @@ It includes:
 
 ## Tech Stack
 
-- ⚡ Vue 3 + Vite
-- 🔷 TypeScript
-- 🎨 CSS Custom Properties
-- ✨ Font Awesome
-- 🔤 Google Fonts
+| Category | Package | Version |
+|---|---|---|
+| Framework | vue | ^3.5.32 |
+| Build Tool | vite | ^4.5.5 |
+| Type System | typescript | ~5.3.2 |
+| Composables | @vueuse/core | ^14.2.1 |
+| Styles | Scoped CSS + CSS Custom Properties | — |
+| Icons | Font Awesome 6 CDN | — |
+| Deployment | GitHub Pages | — |
 
 ## Project Structure
 
@@ -39,14 +43,6 @@ src/
 │   ├── data/        # resume.ts — single source of truth for all content
 │   └── types/       # TypeScript type definitions
 └── style/           # CSS custom properties & global styles
-```
-
-## Development
-
-```bash
-npm install
-npm run dev
-npm run build
 ```
 
 ## Deployment
