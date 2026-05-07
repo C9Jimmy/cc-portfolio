@@ -74,14 +74,14 @@ function onCardKey(e: KeyboardEvent, idx: number) {
 
 .carousel-stage {
   position: relative;
-  height: 440px;
+  height: var(--carousel-stage-h);
   perspective: 1400px;
   margin-bottom: 40px;
 }
 
 .c-card {
   position: absolute;
-  width: var(--carousel-card-w); height: 380px;
+  width: var(--carousel-card-w); height: var(--carousel-card-h);
   top: 50%; left: 50%;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s;

@@ -30,6 +30,8 @@
 
   /* Carousel */
   --carousel-card-w: 280px;
+  --carousel-card-h: 380px;
+  --carousel-stage-h: 440px;
   --carousel-offset: 280px;
 
   /* Project card gradients */
