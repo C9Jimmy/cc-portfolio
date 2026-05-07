@@ -31,26 +31,28 @@ function onCardKey(e: KeyboardEvent, idx: number) {
         @click="clickCard(cardIndex)"
         @keydown="onCardKey($event, cardIndex)"
       >
-        <div class="c-card-inner">
-          <div class="c-face c-front" :class="card.bg">
-            <div class="c-deco"><i :class="`fa-solid ${card.icon}`" aria-hidden="true"></i></div>
-            <div class="c-front-copy">
-              <div class="c-type">{{ card.type }}</div>
-              <div class="c-name">{{ card.name }}</div>
-              <div class="c-year">{{ card.year }}</div>
+        <div class="c-card-float">
+          <div class="c-card-inner">
+            <div class="c-face c-front" :class="card.bg">
+              <div class="c-deco"><i :class="`fa-solid ${card.icon}`" aria-hidden="true"></i></div>
+              <div class="c-front-copy">
+                <div class="c-type">{{ card.type }}</div>
+                <div class="c-name">{{ card.name }}</div>
+                <div class="c-year">{{ card.year }}</div>
+              </div>
             </div>
-          </div>
-          <div class="c-face c-back">
-            <div class="c-back-type">{{ card.type }}</div>
-            <div class="c-back-title">{{ card.name }}</div>
-            <div class="c-back-desc">{{ card.desc }}</div>
-            <div class="c-back-tags">
-              <span v-for="t in card.tags" :key="t" class="c-back-tag">{{ t }}</span>
+            <div class="c-face c-back">
+              <div class="c-back-type">{{ card.type }}</div>
+              <div class="c-back-title">{{ card.name }}</div>
+              <div class="c-back-desc">{{ card.desc }}</div>
+              <div class="c-back-tags">
+                <span v-for="t in card.tags" :key="t" class="c-back-tag">{{ t }}</span>
+              </div>
+              <a v-if="card.url" :href="card.url" target="_blank" rel="noopener noreferrer" class="c-back-link" @click.stop>
+                Open Project <i class="fa-solid fa-arrow-up-right-from-square fa-xs" aria-hidden="true"></i>
+              </a>
+              <div class="c-back-hint"><span aria-hidden="true">x</span> close</div>
             </div>
-            <a v-if="card.url" :href="card.url" target="_blank" rel="noopener noreferrer" class="c-back-link" @click.stop>
-              Open Project <i class="fa-solid fa-arrow-up-right-from-square fa-xs" aria-hidden="true"></i>
-            </a>
-            <div class="c-back-hint">close</div>
           </div>
         </div>
       </div>
@@ -87,17 +89,19 @@ function onCardKey(e: KeyboardEvent, idx: number) {
   background: transparent;
   -webkit-tap-highlight-color: transparent;
 }
-.c-card:focus-visible { border-radius: 18px; }
+.c-card:focus-visible { border-radius: 18px; } /* 2px larger than .c-face (16px) so outline clears the face edge */
 
 /* Carousel positions */
-.pos-center { transform: translate(-50%, -50%) scale(1) rotateY(0deg); z-index: 5; animation: cardBreathe 8s ease-in-out infinite; }
+.pos-center { transform: translate(-50%, -50%) scale(1) rotateY(0deg); z-index: 5; }
+
+.pos-center .c-card-float { animation: cardBreathe 8s ease-in-out infinite; }
 
 @keyframes cardBreathe {
-  0%   { transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(0px)  rotateZ(0deg);    filter: brightness(1); }
-  25%  { transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(-1px) rotateZ(0.3deg);  filter: brightness(1.06); }
-  50%  { transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(-2px) rotateZ(0deg);    filter: brightness(1.12); }
-  75%  { transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(-1px) rotateZ(-0.3deg); filter: brightness(1.06); }
-  100% { transform: translate(-50%, -50%) scale(1) rotateY(0deg) translateY(0px)  rotateZ(0deg);    filter: brightness(1); }
+  0%   { transform: translateY(0px)  rotateZ(0deg);    filter: brightness(1); }
+  25%  { transform: translateY(-1px) rotateZ(0.3deg);  filter: brightness(1.06); }
+  50%  { transform: translateY(-2px) rotateZ(0deg);    filter: brightness(1.12); }
+  75%  { transform: translateY(-1px) rotateZ(-0.3deg); filter: brightness(1.06); }
+  100% { transform: translateY(0px)  rotateZ(0deg);    filter: brightness(1); }
 }
 .pos-right1 { transform: translate(-50%, -50%) translateX(var(--carousel-offset)) scale(0.84) rotateY(-18deg); z-index: 4; }
 .pos-left1  { transform: translate(-50%, -50%) translateX(calc(-1 * var(--carousel-offset))) scale(0.84) rotateY(18deg); z-index: 4; }
@@ -106,6 +110,11 @@ function onCardKey(e: KeyboardEvent, idx: number) {
 .pos-hidden { transform: translate(-50%, -50%) translateX(0) scale(0.5); opacity: 0; pointer-events: none; z-index: 0; }
 
 .c-card.flipped .c-card-inner { transform: rotateY(180deg); }
+
+.c-card-float {
+  width: 100%; height: 100%;
+  transform-style: preserve-3d; /* pass 3D context through to .c-card-inner */
+}
 
 .c-card-inner {
   width: 100%; height: 100%;
@@ -168,11 +177,7 @@ function onCardKey(e: KeyboardEvent, idx: number) {
 .c-back-tag { font-size: 12px; color: var(--gray); border: 1px solid var(--border); background: var(--white); padding: 4px 10px; border-radius: 100px; }
 .c-back-link { align-self: flex-start; font-size: 14px; font-weight: 800; color: var(--black); border-bottom: 2px solid var(--yellow); display: inline-block; margin-bottom: 18px; }
 .c-back-hint { font-size: 12px; color: var(--gray2); text-align: center; }
-.c-back-hint::before {
-  content: 'x';
-  margin-right: 4px;
-  font-weight: 700;
-}
+.c-back-hint span { font-weight: 700; margin-right: 4px; }
 
 .carousel-controls {
   display: flex;
@@ -195,7 +200,7 @@ function onCardKey(e: KeyboardEvent, idx: number) {
 .cc-btn:active { transform: scale(0.88); transition-duration: 0.05s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .pos-center { animation: none; }
+  .pos-center .c-card-float { animation: none; }
   .c-card-inner { transition: none; }
 }
 </style>
