@@ -1,7 +1,7 @@
 import type { Profile, ExpItem, ProjectCard, SkillGroup } from '@/shared/types/resume'
 
 export const profile: Profile = {
-  name: '程資閔',
+  name: 'Chris Cheng',
   nameEn: 'Chris Cheng',
   titles: ['Frontend Engineer', '專案管理', 'UI/UX Designer'],
   location: '台中 · 遠端從優',
@@ -288,4 +288,3 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
 ]
-

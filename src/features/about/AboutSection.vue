@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL
     <div class="col">
       <SectionTitle text="About" />
       <div class="about-grid">
-        <img :src="`${base}images/260410_72dpi.jpg`" alt="程資閔" class="about-photo" />
+        <img :src="`${base}images/260410_72dpi.jpg`" alt="Chris Cheng" class="about-photo" />
         <div class="about-text">
           <p>Hi, I'm Chris Cheng. 畢業於國立虎尾科技大學多媒體設計系，具備前端開發與 UI/UX 設計的雙重實務背景，能將設計稿、網站內容與使用流程轉換為清楚可維護的前端頁面。</p>
           <p>曾於醫療軟體公司參與 Vue.js 醫療系統介面重構、Web App 登入頁建置與已上架視訊掛號服務維護改版；也曾使用 HTML5、CSS3、Bootstrap 完成多個企業官網 RWD 切版。近年在專案管理、WordPress 網站建置與 SEO 內容協作中，累積需求溝通、規格整理、時程協調與交付管理經驗。</p>
