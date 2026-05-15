@@ -5,6 +5,10 @@ export interface Contribution {
 }
 
 export interface ContribResponse {
+  updatedAt?: string
+  source?: 'github-graphql' | string
+  user?: string
+  hasAnyRestrictedContributions?: boolean
   total: Record<string, number>
   contributions: Contribution[]
 }

@@ -49,6 +49,16 @@ src/
 
 This site is deployed with GitHub Actions to GitHub Pages.
 
+## GitHub Contributions
+
+The Skills contribution graph reads `public/data/github-contributions.json` when it exists. Update it locally with:
+
+```bash
+GH_CONTRIBUTIONS_TOKEN=github_pat_xxx npm run update:github
+```
+
+The token is used only while generating the JSON file. Do not commit the token or put it in Vue client code. If the JSON file is missing, the site falls back to the public third-party contributions API.
+
 ## License
 
 This project is licensed under the MIT License.

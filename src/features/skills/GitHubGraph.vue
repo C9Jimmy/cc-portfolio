@@ -12,7 +12,11 @@ const failed  = ref(false)
 
 onMounted(async () => {
   try {
-    const r = await fetch(`https://github-contributions-api.jogruber.de/v4/${GITHUB_USER}?y=last`)
+    const localUrl = `${import.meta.env.BASE_URL}data/github-contributions.json`
+    let r = await fetch(localUrl, { cache: 'no-cache' })
+    if (!r.ok) {
+      r = await fetch(`https://github-contributions-api.jogruber.de/v4/${GITHUB_USER}?y=last`)
+    }
     if (!r.ok) throw new Error('api error')
     data.value = await r.json() as ContribResponse
   } catch {
