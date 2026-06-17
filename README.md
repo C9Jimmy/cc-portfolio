@@ -51,13 +51,15 @@ This site is deployed with GitHub Actions to GitHub Pages.
 
 ## GitHub Contributions
 
-The Skills contribution graph reads `public/data/github-contributions.json` when it exists. Update it locally with:
+The Skills contribution graph reads `public/data/github-contributions.json` when it exists. GitHub Actions refreshes this data before each Pages deployment and on a scheduled workflow every five days.
+
+Update it locally with:
 
 ```bash
-GH_CONTRIBUTIONS_TOKEN=github_pat_xxx npm run update:github
+npm run update:github
 ```
 
-The token is used only while generating the JSON file. Do not commit the token or put it in Vue client code. If the JSON file is missing, the site falls back to the public third-party contributions API.
+The updater uses GitHub GraphQL when `GH_CONTRIBUTIONS_TOKEN`, `GITHUB_TOKEN`, or `GH_TOKEN` is available. If the token is missing or rejected, it falls back to the public GitHub profile contribution calendar. Do not commit tokens or put them in Vue client code. If the JSON file is missing, the site falls back to the public third-party contributions API.
 
 ## License
 

@@ -3,6 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+  schedule:
+    # Refresh GitHub contribution data every 5 days at 02:36 Asia/Taipei.
+    - cron: "36 18 */5 * *"
 
 permissions:
   contents: read
@@ -24,6 +28,17 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      - name: Update GitHub contribution snapshot
+        run: npm run update:github
+        env:
+          GH_CONTRIBUTIONS_TOKEN: ${{ secrets.GH_CONTRIBUTIONS_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Verify GitHub contribution snapshot
+        run: |
+          node -e "const fs = require('node:fs'); const path = 'public/data/github-contributions.json'; const data = JSON.parse(fs.readFileSync(path, 'utf8')); if (!Array.isArray(data.contributions) || data.contributions.length === 0) throw new Error('Missing contributions array in ' + path); if (!Number.isFinite(data.total?.lastYear) || data.total.lastYear < 1) throw new Error('Invalid total.lastYear in ' + path); console.log(data.total.lastYear + ' contributions in ' + data.contributions.length + ' days');"
+
       - run: npm run build
 
       - uses: actions/configure-pages@v4
