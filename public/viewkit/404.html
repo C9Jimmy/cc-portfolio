@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#1e1e1e"><meta name="description" content="Viewport, screen and browser detection for front-end layout work"><title>Page not found｜viewkit</title><script>(function(){const themes = [{"id":"graphite","name":"Graphite","background":"#1e1e1e","text":"#fcc92f"},{"id":"white","name":"White","background":"#ffffff","text":"#202020"},{"id":"ivory","name":"Ivory","background":"#f5f1e8","text":"#2a2a2a"},{"id":"navy","name":"Navy","background":"#0f2233","text":"#e6f0f7"},{"id":"forest","name":"Forest","background":"#12302a","text":"#e8f3ee"},{"id":"wine","name":"Wine","background":"#3a1420","text":"#f8e9ee"},{"id":"custom","name":"Custom","background":"#1e1e1e","text":"#ffffff"}];
+const storageKey = "viewkit-theme";
+const defaultId = "graphite";
+
+      var isHex = function (value) {
+        return typeof value === 'string' && /^#[0-9a-f]{6}$/.test(value);
+      };
+      var theme = themes.find(function (item) {
+        return item.id === defaultId;
+      });
+      try {
+        var saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
+        var match =
+          saved &&
+          themes.find(function (item) {
+            return item.id === saved.id;
+          });
+        if (match && match.id !== 'custom') theme = match;
+        if (
+          match &&
+          match.id === 'custom' &&
+          isHex(saved.background) &&
+          isHex(saved.text)
+        ) {
+          theme = saved;
+        }
+      } catch (error) {
+        // 無法讀取時使用預設配色
+      }
+      var root = document.documentElement;
+      root.style.setProperty('--vk-bg', theme.background);
+      root.style.setProperty('--vk-text', theme.text);
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute('content', theme.background);
+    })();</script><style>@font-face{font-family:Black Ops One;font-style:normal;font-display:swap;font-weight:400;src:url(/cc-portfolio/viewkit/_astro/black-ops-one-latin-400-normal.CYRH0z_U.woff2)format("woff2"),url(/cc-portfolio/viewkit/_astro/black-ops-one-latin-400-normal.DmcO2QRk.woff)format("woff")}@font-face{font-family:M PLUS U;font-style:normal;font-display:swap;font-weight:400;src:url(/cc-portfolio/viewkit/_astro/m-plus-u-latin-400-normal.FAz7rFRT.woff2)format("woff2"),url(/cc-portfolio/viewkit/_astro/m-plus-u-latin-400-normal.LPgLsAu5.woff)format("woff")}@font-face{font-family:M PLUS U;font-style:normal;font-display:swap;font-weight:700;src:url(/cc-portfolio/viewkit/_astro/m-plus-u-latin-700-normal.C9nQWn6q.woff2)format("woff2"),url(/cc-portfolio/viewkit/_astro/m-plus-u-latin-700-normal.DIZje7Xa.woff)format("woff")}:root{--vk-bg:#1e1e1e;--vk-text:#fcc92f}*,:before,:after{box-sizing:border-box}html{background:var(--vk-bg);color:var(--vk-text);font-family:M PLUS U,system-ui,-apple-system,Segoe UI,Noto Sans TC,Microsoft JhengHei,sans-serif;line-height:1.5}body{margin:0}main{flex-direction:column;gap:32px;width:100%;max-width:552px;min-height:100dvh;margin-inline:auto;padding:32px 16px 16px;display:flex}.page-title{margin:0;font-family:Black Ops One,system-ui,-apple-system,Segoe UI,Noto Sans TC,Microsoft JhengHei,sans-serif;font-size:clamp(28px,8vw,40px);font-weight:400;line-height:1.2}:focus-visible{outline-offset:2px;outline:2px solid}@media (prefers-reduced-motion:reduce){*,:before,:after{transition:none!important}}
+</style></head><body><main><noscript><p>This tool requires JavaScript</p></noscript><h1 class="page-title">Page not found</h1><p><a href="/cc-portfolio/viewkit/">Back to home</a></p></main></body></html>

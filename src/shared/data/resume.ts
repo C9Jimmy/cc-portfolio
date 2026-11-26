@@ -61,6 +61,16 @@ export const experiences: ExpItem[] = [
 export const projectCards: ProjectCard[] = [
   {
     type: 'WEB',
+    name: 'ViewKit',
+    year: 'Astro · Vue 3',
+    icon: 'fa-solid fa-display',
+    bg: 'bg-web',
+    url: 'https://c9jimmy.github.io/cc-portfolio/viewkit/',
+    desc: '給前端切版用的單頁工具：即時偵測螢幕尺寸、斷點與瀏覽器資訊，並提供文字／背景配色預覽與對比檢查。',
+    tags: ['WEB', 'Astro', 'Tool'],
+  },
+  {
+    type: 'WEB',
     name: 'Chris Cheng Portfolio',
     year: 'Vue 3 · TypeScript',
     icon: 'fa-brands fa-vuejs',
